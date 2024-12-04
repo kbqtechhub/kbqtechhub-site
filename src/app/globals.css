@@ -9,13 +9,24 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* YELLY COLORS */
+    --yelly:hsl(48, 100%, 50%);
+    --soft-yelly: hsl(48, 80%, 70%);
+    --light-yelly:hsl(48, 100%, 75%);
+    --gold: hsl(42, 100%, 45%);
+    ---muted-yelly:hsl(48, 60%, 40%);
+    /* BLACK COLORS */
+    --pure-black: hsl(0, 0%, 4%);
+    --soft-black: hsl(0, 0%, 20%);
+    --dark-gray: hsl(0, 0%, 35%);
+    --graphite-gray: hsl(0, 0%, 50%);
+    --off-black: hsl(0, 0%, 10%);
+    --white: hsl(0, 0%, 93%);
   }
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: var(--yelly);
+  background: var(--pure-black);
   font-family: Arial, Helvetica, sans-serif;
 }
