@@ -17,7 +17,7 @@ export default function Navigation() {
     const pathname = usePathname()
 
     return (
-        <nav>
+        <nav className='hidden md:flex'>
             <ul className='flex space-x-4'>
                 {navLinks.map((link, index) => (
                     <li key={index}>
