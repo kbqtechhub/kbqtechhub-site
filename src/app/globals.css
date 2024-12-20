@@ -5,6 +5,25 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  /* YELLY COLORS */
+    --yelly:hsl(48, 100%, 50%);
+    --soft-yelly: hsl(48, 80%, 70%);
+    --light-yelly:hsl(48, 100%, 75%);
+    --gold: hsl(42, 100%, 45%);
+    ---muted-yelly:hsl(48, 60%, 40%);
+    /* BLACK COLORS */
+    --pure-black: hsl(0, 0%, 4%);
+    --soft-black: hsl(0, 0%, 20%);
+    --dark-gray: hsl(0, 0%, 35%);
+    --graphite-gray: hsl(0, 0%, 50%);
+    --off-black: hsl(0, 0%, 10%);
+    --white: hsl(0, 0%, 93%);
+    /* WINE COLORS */
+      ;
+      --winny: hsl(330, 100%, 50%);
+      --soft-wine: hsl(330, 80%, 70%);
+      --light-wine: hsl(330, 100%, 75%);
+      --muted-wine: hsl(330, 60%, 40%);
 }
 
 @media (prefers-color-scheme: dark) {

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from '@/components/shared/Header';
 import { Exo_2 } from 'next/font/google'
+import Footer from '@/components/shared/Footer';
 
 const exo_2 = Exo_2({
   subsets: ['latin'],
@@ -24,7 +25,10 @@ export default function RootLayout({
         className={`${exo_2.className} antialiased`}
       >
         <Header />
-        {children}
+        <main className='min-h-screen max-w-7xl mx-auto'>
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );
