@@ -22,11 +22,16 @@
     --graphite-gray: hsl(0, 0%, 50%);
     --off-black: hsl(0, 0%, 10%);
     --white: hsl(0, 0%, 93%);
+    /* WINE COLORS */
+      ;
+      --winny: hsl(330, 100%, 50%);
+      --soft-wine: hsl(330, 80%, 70%);
+      --light-wine: hsl(330, 100%, 75%);
+      --muted-wine: hsl(330, 60%, 40%);
   }
 }
 
 body {
   color: var(--yelly);
-  background: var(--pure-black);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--soft-black);
 }
