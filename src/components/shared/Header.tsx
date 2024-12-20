@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import Navigation from './Navigation'
 
 export default function Header() {
     return (
@@ -8,25 +9,7 @@ export default function Header() {
             <div>
                 <Image src="/images/KBQTECH-HUB-YELLOW.png" alt="KBQ TECH-HUB" width={50} height={50} />
             </div>
-            <nav>
-                <ul className='flex space-x-4'>
-                    <li>
-                        <Link href={'/'}>Home</Link>
-                    </li>
-                    <li>
-                        <Link href={'/services'}>Services</Link>
-                    </li>
-                    <li>
-                        <Link href={'/shop'}>Shop</Link>
-                    </li>
-                    <li>
-                        <Link href={'/about'}>About</Link>
-                    </li>
-                    <li>
-                        <Link href={'/contact'}>Contact</Link>
-                    </li>
-                </ul>
-            </nav>
+            <Navigation />
             <button className='border border-winny text-winny p-2 rounded-md hover:bg-winny hover:text-white hover:transition-colors '>
                 <Link href={'/login'}>Book an intro call</Link>
             </button>
