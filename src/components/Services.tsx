@@ -57,7 +57,7 @@ export default function Services() {
                         </div>
                         <div className="flex flex-col gap-4 md:flex-row items-center justify-between">
                             <p className='text-white text-lg w-full md:w-[20rem] font-extralight'>{service.description}</p>
-                            <button className="w-full md:w-fit bg-gradient-to-r from-muted-wine to-muted-yelly text-white px-6 py-2 rounded-tl-2xl rounded-tr-sm rounded-br-2xl rounded-bl-sm hover:bg-gradient-to-r hover:from-soft-wine hover:to-soft-yelly">
+                            <button className="w-full md:w-fit bg-gradient-to-r from-muted-wine to-muted-yelly text-white px-6 py-2 rounded-tl-2xl rounded-tr-sm rounded-br-2xl rounded-bl-sm hover:bg-gradient-to-r hover:from-soft-wine hover:to-soft-yelly shadow-md hover:shadow-sm">
                                 {service.button}
                             </button>
                         </div>
