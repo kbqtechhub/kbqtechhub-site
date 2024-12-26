@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from '@/components/shared/Header';
 import { Exo_2 } from 'next/font/google'
 import Footer from '@/components/shared/Footer';
+import SmoothScrollWrapper from "@/components/shared/SmoothScrollWrapper";
 
 const exo_2 = Exo_2({
   subsets: ['latin'],
@@ -25,9 +26,11 @@ export default function RootLayout({
         className={`${exo_2.className} antialiased`}
       >
         <Header />
-        <main className='min-h-screen max-w-7xl mx-auto px-4'>
-          {children}
-        </main>
+        <SmoothScrollWrapper>
+          <main className='min-h-screen max-w-7xl mx-auto px-4'>
+            {children}
+          </main>
+        </SmoothScrollWrapper>
         <Footer />
       </body>
     </html>
