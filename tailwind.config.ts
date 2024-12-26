@@ -19,6 +19,7 @@ export default {
         "pure-black": "var(--pure-black)",
         "soft-black": "var(--soft-black)",
         "dark-gray": "var(--dark-gray)",
+        "darker-gray": "var(--darker-gray)",
         "graphite-gray": "var(--graphite-gray)",
         "off-black": "var(--off-black)",
         white: "var(--white)",

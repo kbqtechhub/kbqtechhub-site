@@ -36,7 +36,9 @@
     ---muted-yelly:hsl(48, 60%, 40%);
     /* BLACK COLORS */
     --pure-black: hsl(0, 0%, 4%);
-    --soft-black: hsl(0, 0%, 20%);
+    /* --soft-black: hsl(0, 0%, 20%); */
+    --soft-black: hsl(0, 0%, 15%);
+    --darker-gray: hsl(0, 0%, 25%);
     --dark-gray: hsl(0, 0%, 35%);
     --graphite-gray: hsl(0, 0%, 50%);
     --off-black: hsl(0, 0%, 10%);
