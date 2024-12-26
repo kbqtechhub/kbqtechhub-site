@@ -1,41 +1,41 @@
-import { CgWebsite } from "react-icons/cg";
+import Image from 'next/image'
 import HorizontalScrollCarousel from "./shared/HorizontalScrollCarousel";
 
 const services = [
     {
         title: 'WEB DEVELOPMENT',
         description: 'Design responsive, visually stunning websites that enhance your brand, engage audiences and drive results. We deliver customized digital solutions to make your online presence stand out.',
-        icon: <CgWebsite className='text-gold text-8xl' />,
+        icon: <Image src="/images/Website Coding.svg" alt="Web Development" width={80} height={80} priority />,
         button: 'Get a Custom Website'
     },
     {
         title: 'APP DEVELOPMENT',
         description: 'Build innovative mobile and web applications tailored to your business needs. Our apps priotize functionality, user experience and modern design to keep your business ahead in the digital age.',
-        icon: <CgWebsite className='text-gold text-8xl' />,
+        icon: <Image src="/images/Responsive Design.svg" alt="App Development" width={80} height={80} priority />,
         button: 'Start your App Project'
     },
     {
         title: 'Digital Marketing',
         description: 'Boost your branch with tailored digital marketing strategies, including SEO, social media, email marketing and more. Connect with your audience, increase visibility and achieve measurable growth in the online marketplace.',
-        icon: <CgWebsite className='text-gold text-8xl' />,
+        icon: <Image src="/images/Digital Marketing.svg" alt="Digital Marketing" width={80} height={80} />,
         button: 'Boost Your Brand'
     },
     {
         title: 'IT Training',
         description: 'Gain essential IT skills with expert-led training programs. We offer practical learning for individuals and teams, empowering success in today’s competitive, tech-driven world.',
-        icon: <CgWebsite className='text-gold text-8xl' />,
+        icon: <Image src="/images/Training.svg" alt="IT Training" width={80} height={80} />,
         button: 'Enroll in a Course'
     },
     {
         title: 'Photography',
         description: 'Capture impactful visuals for brands, events, or personal moments. Our professional photography delivers high-quality, creative images that leave lasting impressions and elevate your story.',
-        icon: <CgWebsite className='text-gold text-8xl' />,
+        icon: <Image src="/images/Action Camera.svg" alt="Photography" width={80} height={80} />,
         button: 'Book a Photoshoot'
     },
     {
         title: 'Online Store',
         description: 'Shop the latest laptops, accessories, and gadgets in our online store. Discover high-quality tech essentials designed to keep you connected, productive, and ahead in the digital world.',
-        icon: <CgWebsite className='text-gold text-8xl' />,
+        icon: <Image src="/images/online store.svg" alt="Online Store" width={80} height={80} />,
         button: 'Shop Now'
     }
 ]
