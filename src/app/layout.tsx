@@ -25,7 +25,7 @@ export default function RootLayout({
         className={`${exo_2.className} antialiased`}
       >
         <Header />
-        <main className='min-h-screen max-w-7xl mx-auto'>
+        <main className='min-h-screen max-w-7xl mx-auto px-4'>
           {children}
         </main>
         <Footer />
