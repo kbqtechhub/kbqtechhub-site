@@ -2,7 +2,6 @@
 
 import { useRef } from "react";
 import { motion, useTransform, useScroll } from "motion/react";
-
 interface HorizontalScrollCarouselProps {
     children: React.ReactNode;
 }
