@@ -9,6 +9,8 @@ export default function SectionTitle({ title, color = 'black' }: SectionTitlePro
     const textColor = color === 'yellow' ? 'var(--yelly)' : 'var(--soft-black)';
 
     return (
-        <h2 className={`${textColor} text-2xl uppercase text-center`}>{title}</h2>
+        <h2
+            style={{ color: textColor }}
+            className={`text-2xl uppercase text-center`}>{title}</h2>
     )
 }

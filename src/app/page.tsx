@@ -4,7 +4,7 @@ import Services from '@/components/Services';
 
 export default function Home() {
   return (
-    <main>
+    <main className='flex flex-col gap-10 mb-20'>
       <Hero />
       <Services />
       <Projects />
