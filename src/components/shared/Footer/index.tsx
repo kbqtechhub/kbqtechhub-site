@@ -44,7 +44,7 @@ export default function Footer() {
     return (
         <section className='border-t border-pure-black'>
             <section className='mx-2 md:mx-4'>
-                <footer className={` min-h-[50vh] w-full border-2 border-graphite-gray rounded-md border-dashed p-10 max-w-7xl mx-auto my-8 flex flex-col gap-8`}>
+                <footer className={` min-h-[50vh] w-full border-2 border-graphite-gray rounded-3xl border-dashed p-10 max-w-7xl mx-auto my-8 flex flex-col gap-8`}>
                     <div className='flex items-center justify-between'>
                         <div className='flex-1'>
                             <h2 className='text-5xl text-graphite-gray font-black'>One Hub, Endless Digital Possibilities.</h2>
