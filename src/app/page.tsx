@@ -1,4 +1,5 @@
 import Clients from '@/components/Clients';
+import Faq from '@/components/Faq';
 import Hero from '@/components/Hero';
 import Projects from '@/components/Projects';
 import Services from '@/components/Services';
@@ -12,6 +13,7 @@ export default function Home() {
       <Projects />
       <Clients />
       <Testimonials />
+      <Faq />
     </main>
   );
 }
