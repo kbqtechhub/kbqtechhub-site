@@ -31,7 +31,7 @@
     --soft-yelly: hsl(48, 80%, 70%);
     --light-yelly:hsl(48, 100%, 75%);
     --gold: hsl(42, 100%, 45%);
-    ---muted-yelly:hsl(48, 60%, 40%);
+    --muted-yelly: hsl(48, 60%, 40%);
     /* BLACK COLORS */
     --pure-black: hsl(0, 0%, 4%);
     --light-black: hsl(0, 0%, 20%);
@@ -60,7 +60,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to top, var(---muted-yelly), var(--muted-wine));
+  background: linear-gradient(to top, var(--muted-yelly), var(--muted-wine));
   border-radius: 5px;
 }
 
