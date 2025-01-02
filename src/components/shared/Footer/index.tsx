@@ -45,7 +45,7 @@ export default function Footer() {
         <section className='border-t border-pure-black'>
             <section className='mx-2 md:mx-4'>
                 <footer className={`min-h-[50vh] w-full border-2 border-graphite-gray rounded-3xl border-dashed p-4 md:p-10 max-w-7xl mx-auto my-8 flex flex-col gap-8`}>
-                    <div className='flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0'>
+                    <div className='flex flex-col md:flex-row items-center justify-between gap-16 md:gap-0'>
                         <div className='flex-1 w-full'>
                             <h2 className='text-3xl md:text-5xl text-graphite-gray font-black'>One Hub, Endless Digital Possibilities.</h2>
                             <form className='flex flex-col md:flex-row gap-3 items-start md:items-center'>
@@ -82,7 +82,7 @@ export default function Footer() {
                             </div>
                         </div>
                     </div>
-                    <div className='w-full flex flex-col items-center justify-center'>
+                    <div className='w-full flex flex-col items-center gap-10 justify-center'>
                         <h1 className='text-5xl md:text-[8rem] font-black text-gold text-center'>KBQ TECH-HUB</h1>
                         <div className='text-center'>
                             <p className='text-center text-graphite-gray text-sm md:text-base'>© {new Date().getFullYear()}. All Rights Reserved.</p>

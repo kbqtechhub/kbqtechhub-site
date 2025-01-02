@@ -47,7 +47,7 @@ export default function MobileNavigation() {
         <div className="md:hidden">
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="fixed top-4 right-4 z-50 p-2 rounded-lg bg-white/10 backdrop-blur-sm"
+                className={`${isOpen && 'fixed'} top-4 right-4 z-50 p-2 rounded-lg bg-white/10 backdrop-blur-sm`}
                 aria-label="Toggle navigation menu"
             >
                 {isOpen ? (
