@@ -1,7 +1,10 @@
+import AboutSection from '@/components/AboutSection'
 import React from 'react'
 
 export default function AboutPage() {
     return (
-        <div>AboutPage</div>
+        <section>
+            <AboutSection />
+        </section>
     )
 }
