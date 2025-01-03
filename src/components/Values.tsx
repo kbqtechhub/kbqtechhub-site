@@ -27,7 +27,7 @@ const values = [
 
 export default function Values() {
     return (
-        <section className='flex flex-wrap min-h-[70vh] gap-10 md:gap-20'>
+        <section className='flex flex-wrap h-fit gap-10 md:gap-20'>
             <div className='w-full md:w-auto md:flex-1 h-[20rem] md:h-[35rem] flex items-center justify-center rounded-3xl md:rounded-r-[20rem] values_banner'>
                 <div className='text-lg sm:text-xl md:text-2xl lg:text-3xl max-w-md w-full mx-auto font-semibold text-white px-6 sm:px-8 md:px-4 leading-relaxed md:leading-snug group'>
                     What truly sets us apart is our belief in collaboration, innovation, and excellence. Every project we undertake reflects our core values.

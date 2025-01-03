@@ -2,6 +2,7 @@ import AboutSection from '@/components/AboutSection'
 import Faq from '@/components/Faq'
 import TrainingEnrollCta from '@/components/TrainingEnrollCta'
 import Values from '@/components/Values'
+import Workspace from '@/components/Workspace'
 import React from 'react'
 
 export default function AboutPage() {
@@ -11,6 +12,7 @@ export default function AboutPage() {
                 <AboutSection />
                 <Values />
             </section>
+            <Workspace />
             <Faq />
             <TrainingEnrollCta />
         </section>
