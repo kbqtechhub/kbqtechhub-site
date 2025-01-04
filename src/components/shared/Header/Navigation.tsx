@@ -58,7 +58,7 @@ export default function Navigation() {
                         <NavigationMenuLink
                             className={cn(
                                 navigationMenuTriggerStyle(),
-                                isActive('/') ? 'text-[--winny] !important' : ''
+                                isActive('/') ? 'text-winny !important' : ''
                             )}
                         >
                             Home
@@ -68,7 +68,7 @@ export default function Navigation() {
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>Services</NavigationMenuTrigger>
                     <NavigationMenuContent>
-                        <ul className='grid w-[400px] p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-[--off-black] rounded-md'>
+                        <ul className='grid w-[400px] p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-off-black rounded-md'>
                             {serviceLinks.map((service) => (
                                 <ListItem
                                     key={service.title}
@@ -87,7 +87,7 @@ export default function Navigation() {
                         <NavigationMenuLink
                             className={cn(
                                 navigationMenuTriggerStyle(),
-                                isActive('/shop') ? 'text-[--winny] !important' : ''
+                                isActive('/shop') ? 'text-winny !important' : ''
                             )}
                         >
                             Shop
@@ -99,7 +99,7 @@ export default function Navigation() {
                         <NavigationMenuLink
                             className={cn(
                                 navigationMenuTriggerStyle(),
-                                isActive('/about') ? 'text-[--winny] !important' : ''
+                                isActive('/about') ? 'text-winny !important' : ''
                             )}
                         >
                             About
@@ -111,7 +111,7 @@ export default function Navigation() {
                         <NavigationMenuLink
                             className={cn(
                                 navigationMenuTriggerStyle(),
-                                isActive('/contact') ? 'text-[--winny] !important' : ''
+                                isActive('/contact') ? 'text-winny !important' : ''
                             )}
                         >
                             Contact
@@ -133,7 +133,7 @@ const ListItem = React.forwardRef<
                 <a
                     ref={ref}
                     className={cn(
-                        'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[--pure-black] hover:text-[--winny] focus:bg-[--pure-black] focus:text-[--winny] text-[--yelly]',
+                        'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-pure-black hover:text-winny focus:bg-pure-black focus:text-winny text-yelly',
                         className
                     )}
                     {...props}
@@ -142,7 +142,7 @@ const ListItem = React.forwardRef<
                         {icon}
                         {title}
                     </div>
-                    <p className='line-clamp-2 text-sm leading-snug text-[--graphite-gray]'>
+                    <p className='line-clamp-2 text-sm leading-snug text-graphite-gray'>
                         {children}
                     </p>
                 </a>
