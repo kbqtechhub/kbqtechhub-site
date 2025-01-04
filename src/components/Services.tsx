@@ -44,21 +44,21 @@ export default function Services() {
     return (
         <>
             <HorizontalScrollCarousel>
-                <section className='flex gap-10'>
+                <section className='flex gap-4 md:gap-10'>
                     {services.map((service, index) => (
                         <div
                             key={index}
-                            className='bg-darker-gray flex-shrink-0 grid gap-10 w-[800px] rounded-2xl rounded-tr-[10rem] px-8 py-10'
+                            className='bg-darker-gray flex-shrink-0 grid gap-5 md:gap-10 w-[300px] md:w-[800px] rounded-2xl rounded-tr-[4rem] md:rounded-tr-[10rem] px-4 md:px-8 py-6 md:py-10'
                         >
                             <div className='flex flex-col gap-4 md:flex-row justify-between items-center'>
-                                <h2 className='text-yelly text-3xl'>{service.title}</h2>
-                                <div className='h-40 w-40 flex items-center justify-center bg-soft-yelly rounded-full border-8 border-white'>
+                                <h2 className='text-yelly text-2xl md:text-3xl text-center md:text-left'>{service.title}</h2>
+                                <div className='h-24 w-24 md:h-40 md:w-40 flex items-center justify-center bg-soft-yelly rounded-full border-4 md:border-8 border-white'>
                                     {service.icon}
                                 </div>
                             </div>
-                            <div className="flex flex-col gap-4 md:flex-row items-center justify-between">
-                                <p className='text-white text-lg w-full md:w-[20rem] font-extralight'>{service.description}</p>
-                                <button className="w-full md:w-fit bg-gradient-to-r from-muted-wine to-muted-yelly text-white px-6 py-2 rounded-tl-2xl rounded-tr-sm rounded-br-2xl rounded-bl-sm hover:bg-gradient-to-r hover:from-soft-wine hover:to-soft-yelly shadow-md hover:shadow-sm">
+                            <div className="flex flex-col md:flex-row md:justify-between gap-4 items-center justify-between">
+                                <p className='text-white text-base md:text-lg text-center md:text-left w-full'>{service.description}</p>
+                                <button className="w-full md:w-2/3 bg-gradient-to-r from-muted-wine to-muted-yelly text-white px-4 md:px-6 py-2 rounded-tl-2xl rounded-tr-sm rounded-br-2xl rounded-bl-sm hover:bg-gradient-to-r hover:from-soft-wine hover:to-soft-yelly shadow-md hover:shadow-sm text-sm md:text-base">
                                     {service.button}
                                 </button>
                             </div>

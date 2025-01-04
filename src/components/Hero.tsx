@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Hero() {
     return (
-        <section className='h-[50vh] md:h-[80vh] bg-darker-gray rounded-3xl p-4'>
+        <section className='min-h-[50vh] md:h-[80vh] bg-darker-gray rounded-3xl p-4'>
             <section className='min-h-[40vh] md:h-[70vh] bg-gradient-to-b from-soft-black to-darker-gray rounded-3xl p-4 shadow-2xl flex items-center justify-center'>
                 <div className='flex flex-col space-y-8'>
                     <h1 className='text-4xl text-center md:text-7xl font-black'>One <span className='text-winny'>Hub,</span> Endless <span className='text-winny'>Digital</span> Possibilities.</h1>
