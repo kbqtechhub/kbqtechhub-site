@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import {
     NavigationMenu,
     NavigationMenuContent,
@@ -21,12 +22,24 @@ const serviceLinks = [
 ];
 
 export default function Navigation() {
+    const pathname = usePathname();
+
+    const isActive = (path: string) => {
+        if (path === '/' && pathname === '/') return true;
+        return pathname === path || pathname?.startsWith(path + '/');
+    };
+
     return (
         <NavigationMenu className='hidden md:block text-primary w-full'>
             <NavigationMenuList>
                 <NavigationMenuItem>
                     <Link href='/' legacyBehavior passHref>
-                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                        <NavigationMenuLink
+                            className={cn(
+                                navigationMenuTriggerStyle(),
+                                isActive('/') ? 'text-[--winny] !important' : ''
+                            )}
+                        >
                             Home
                         </NavigationMenuLink>
                     </Link>
@@ -49,21 +62,36 @@ export default function Navigation() {
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <Link href='/shop' legacyBehavior passHref>
-                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                        <NavigationMenuLink
+                            className={cn(
+                                navigationMenuTriggerStyle(),
+                                isActive('/shop') ? 'text-[--winny] !important' : ''
+                            )}
+                        >
                             Shop
                         </NavigationMenuLink>
                     </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <Link href='/about' legacyBehavior passHref>
-                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                        <NavigationMenuLink
+                            className={cn(
+                                navigationMenuTriggerStyle(),
+                                isActive('/about') ? 'text-[--winny] !important' : ''
+                            )}
+                        >
                             About
                         </NavigationMenuLink>
                     </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <Link href='/contact' legacyBehavior passHref>
-                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                        <NavigationMenuLink
+                            className={cn(
+                                navigationMenuTriggerStyle(),
+                                isActive('/contact') ? 'text-[--winny] !important' : ''
+                            )}
+                        >
                             Contact
                         </NavigationMenuLink>
                     </Link>
