@@ -3,6 +3,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { FaCode, FaMobileAlt, FaBullhorn, FaChalkboardTeacher } from 'react-icons/fa';
 import {
     NavigationMenu,
     NavigationMenuContent,
@@ -15,10 +16,30 @@ import {
 import { cn } from '@/lib/utils';
 
 const serviceLinks = [
-    { title: 'Web Development', href: '/services/web-development', description: 'Custom web development solutions' },
-    { title: 'Mobile Apps', href: '/services/mobile-apps', description: 'Native and cross-platform mobile applications' },
-    { title: 'Cloud Services', href: '/services/cloud', description: 'Cloud infrastructure and consulting' },
-    { title: 'IT Consulting', href: '/services/consulting', description: 'Professional IT consulting services' },
+    {
+        title: 'Web Development',
+        href: '/services/web-development',
+        description: 'Design responsive, visually stunning websites that enhance your brand, engage audiences and drive results. We deliver customized digital solutions to make your online presence stand out.',
+        icon: <FaCode className="w-4 h-4" />
+    },
+    {
+        title: 'Apps Development',
+        href: '/services/apps-development',
+        description: 'Build innovative mobile and web applications tailored to your business needs. Our apps priotize functionality, user experience and modern design to keep your business ahead in the digital age.',
+        icon: <FaMobileAlt className="w-4 h-4" />
+    },
+    {
+        title: 'Digital Marketing',
+        href: '/services/digital-marketing',
+        description: 'Boost your branch with tailored digital marketing strategies, including SEO, social media, email marketing and more. Connect with your audience, increase visibility and achieve measurable growth in the online marketplace.',
+        icon: <FaBullhorn className="w-4 h-4" />
+    },
+    {
+        title: 'IT Training',
+        href: '/services/it-training',
+        description: 'Gain essential IT skills with expert-led training programs. We offer practical learning for individuals and teams, empowering success in today’s competitive, tech-driven world.',
+        icon: <FaChalkboardTeacher className="w-4 h-4" />
+    },
 ];
 
 export default function Navigation() {
@@ -47,12 +68,13 @@ export default function Navigation() {
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>Services</NavigationMenuTrigger>
                     <NavigationMenuContent>
-                        <ul className='grid w-[400px] p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]'>
+                        <ul className='grid w-[400px] p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-[--off-black] rounded-md'>
                             {serviceLinks.map((service) => (
                                 <ListItem
                                     key={service.title}
                                     title={service.title}
                                     href={service.href}
+                                    icon={service.icon}
                                 >
                                     {service.description}
                                 </ListItem>
@@ -103,21 +125,24 @@ export default function Navigation() {
 
 const ListItem = React.forwardRef<
     React.ElementRef<'a'>,
-    React.ComponentPropsWithoutRef<'a'>
->(({ className, title, children, ...props }, ref) => {
+    React.ComponentPropsWithoutRef<'a'> & { icon?: React.ReactNode }
+>(({ className, title, children, icon, ...props }, ref) => {
     return (
         <li>
             <NavigationMenuLink asChild>
                 <a
                     ref={ref}
                     className={cn(
-                        'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+                        'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[--pure-black] hover:text-[--winny] focus:bg-[--pure-black] focus:text-[--winny] text-[--yelly]',
                         className
                     )}
                     {...props}
                 >
-                    <div className='text-sm font-medium leading-none'>{title}</div>
-                    <p className='line-clamp-2 text-sm leading-snug text-muted-foreground'>
+                    <div className='text-sm font-medium leading-none flex items-center gap-2'>
+                        {icon}
+                        {title}
+                    </div>
+                    <p className='line-clamp-2 text-sm leading-snug text-[--graphite-gray]'>
                         {children}
                     </p>
                 </a>
