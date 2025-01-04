@@ -1,24 +1,62 @@
+"use client";
+
 import Image from 'next/image'
 import React from 'react'
+import { motion } from 'motion/react'
 
 export default function ServiceSection() {
     return (
-        <section>
-            <div className='h-[35rem] py-10 bg-light-black flex flex-col gap-10 rounded-b-[10rem] md:mb-2'>
-                <div className='container mx-auto flex flex-col justify-center'>
-                    <h1 className='text-4xl text-white font-bold text-center mb-5'>Custom Websites Designed to Elevate Your Business</h1>
-                    <p className='text-center text-yelly'>Transform your online presence with stunning, responsive websites tailored to your needs.</p>
-                </div>
-                <div className='container mx-auto flex flex-col justify-center items-center gap-10 relative'>
-                    <div>
-                        <Image src='/images/rings.svg' width={600} height={600} alt='hero' />
+        <section className="relative overflow-hidden">
+            <div className='min-h-[30rem] sm:min-h-[25rem] md:h-[35rem] py-8 sm:py-5 md:py-10 bg-light-black flex flex-col gap-8 sm:gap-5 md:gap-10 rounded-b-[3rem] sm:rounded-b-[5rem] md:rounded-b-[10rem] relative'>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className='container mx-auto flex flex-col justify-center px-5 sm:px-4 md:px-0 max-w-5xl'>
+                    <h1 className='text-2xl sm:text-3xl md:text-6xl text-white font-extrabold text-center mb-4 sm:mb-6 md:mb-8 leading-snug sm:leading-tight tracking-tight'>
+                        Custom Websites Designed to{' '}
+                        <span className="text-yelly relative inline-block">
+                            Elevate
+                            <span className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-[3px] sm:h-1 bg-yelly/30 rounded-full"></span>
+                        </span>{' '}
+                        Your Business
+                    </h1>
+                    <p className='text-sm sm:text-base md:text-xl text-center text-gray-300 max-w-2xl mx-auto leading-relaxed font-light tracking-wide px-4 sm:px-0'>
+                        Transform your online presence with stunning, responsive websites
+                        <span className="block mt-2">tailored to your unique business needs.</span>
+                    </p>
+                </motion.div>
+
+                <div className='container mx-auto flex flex-col justify-center items-center gap-6 sm:gap-5 md:gap-10 relative px-5 sm:px-4 md:px-0'>
+                    <div className='w-full max-w-[250px] sm:max-w-[300px] md:max-w-[600px]'>
+                        <Image
+                            src='/images/rings.svg'
+                            width={600}
+                            height={600}
+                            alt='hero'
+                            className='w-full h-auto'
+                        />
                     </div>
-                    <button className='px-10 shadow-2xl absolute top-5 left-50 rounded-3xl py-4 bg-[#fff] text-gold'>Get a Free Quote</button>
-                </div>
-                <div className='h-[60rem] max-w-5xl w-full mx-auto bg-yelly p-20 -translate-y-60 rounded-b-[100px] flex flex-col gap-10'>
-                    <h2 className='text-soft-black text-center text-2xl font-medium'>At KBQ TECH-HUB, we specialize in creating high-performance websites that drive growth and engagement. Whether you're looking to establish a new online presence or revamp an existing site, our expert team will deliver a solution that meets your unique needs.</h2>
+
+                    <button
+                        className='px-6 sm:px-8 md:px-12 shadow-lg absolute top-1 sm:top-2 md:top-5 left-1/2 -translate-x-1/2 
+                                 rounded-full py-2.5 sm:py-3 md:py-4 bg-white text-gold 
+                                 text-xs sm:text-sm md:text-base font-medium hover:shadow-xl transition-shadow duration-300'>
+                        Get a Free Quote
+                    </button>
                 </div>
             </div>
+
+            <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className='bg-gold rounded-b-2xl sm:rounded-b-3xl max-w-4xl mx-auto w-full px-6 sm:px-10 py-12 sm:py-16 shadow-2xl -mt-8 sm:-mt-10 relative z-10'>
+                <h2 className='text-white text-center text-base sm:text-lg md:text-2xl font-medium leading-relaxed px-2 sm:px-0'>
+                    At KBQ TECH-HUB, we specialize in creating high-performance websites that drive growth and engagement. Whether you're looking to establish a new online presence or revamp an existing site, our expert team will deliver a solution that meets your unique needs.
+                </h2>
+            </motion.div>
         </section>
     )
 }
