@@ -6,7 +6,7 @@ import ServiceSection from '@/components/ServiceSection'
 import TrainingEnrollCta from '@/components/TrainingEnrollCta'
 import React from 'react'
 
-export default function ServicesPage() {
+export default function page() {
     return (
         <section className='flex flex-col gap-20 mb-20'>
             <ServiceSection />
