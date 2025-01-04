@@ -50,16 +50,16 @@ const faqs: FAQItem[] = [
 
 export default function Faq() {
     return (
-        <div className="faq_section p-8 max-w-4xl w-[90%] mx-auto">
+        <div className="faq_section p-4 sm:p-8 max-w-4xl w-[100%] mx-auto">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
             >
-                <h3 className="text-yellow-500 text-lg font-medium">FAQs</h3>
-                <h2 className="text-zinc-400 text-4xl font-semibold mb-8">Questions & Answers</h2>
+                <h3 className="text-yellow-500 text-base sm:text-lg font-medium">FAQs</h3>
+                <h2 className="text-zinc-400 text-2xl sm:text-4xl font-semibold mb-4 sm:mb-8">Questions & Answers</h2>
 
-                <Accordion type="single" collapsible className="space-y-4">
+                <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
                     {faqs.map((faq, index) => (
                         <motion.div
                             key={index}
@@ -69,19 +69,19 @@ export default function Faq() {
                         >
                             <AccordionItem
                                 value={`item-${index}`}
-                                className="border-none rounded-xl bg-light-black overflow-hidden"
+                                className="border-none rounded-lg sm:rounded-xl bg-light-black overflow-hidden"
                             >
-                                <AccordionTrigger className="px-6 py-4 text-lg text-white hover:no-underline [&[data-state=open]>div]:rotate-45">
+                                <AccordionTrigger className="px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg text-white hover:no-underline [&[data-state=open]>div]:rotate-45 text-left">
                                     {faq.question}
                                 </AccordionTrigger>
                                 <AnimatePresence>
-                                    <AccordionContent className="px-6 py-4">
+                                    <AccordionContent className="px-4 sm:px-6 py-3 sm:py-4">
                                         <motion.p
                                             initial={{ opacity: 0, height: 0 }}
                                             animate={{ opacity: 1, height: "auto" }}
                                             exit={{ opacity: 0, height: 0 }}
                                             transition={{ duration: 0.3 }}
-                                            className="text-gold text-base"
+                                            className="text-gold text-sm sm:text-base"
                                         >
                                             {faq.answer}
                                         </motion.p>

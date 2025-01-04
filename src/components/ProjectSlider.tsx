@@ -14,16 +14,34 @@ export default function ProjectSlider() {
         autoplay: true,
         autoplaySpeed: 5000,
         pauseOnHover: true,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    dots: false
+                }
+            }
+        ]
     };
 
     return (
-        <section className='max-w-2xl mx-auto'>
+        <section className='w-full max-w-2xl mx-auto px-4 sm:px-6'>
             <div className='mt-10'>
                 <Slider {...settings}>
                     {Array.from({ length: 5 }, (_, i) => (
-                        <div key={i} className='h-[25rem] bg-white rounded-lg p-4'>
-                            <div className='h-3/4 bg-soft-black'></div>
-                            <div className='h-1/4 bg-soft-yelly'></div>
+                        <div key={i} className='aspect-[4/3] sm:aspect-[16/9] rounded-lg p-2 sm:p-4'>
+                            <div className='h-[70%] bg-soft-black rounded-t-lg'></div>
+                            <div className='h-[30%] bg-soft-yelly rounded-b-lg'></div>
                         </div>
                     ))}
                 </Slider>
