@@ -9,7 +9,7 @@ export default function Clients() {
     ));
 
     return (
-        <section className='flex flex-col gap-10 py-10'>
+        <section className='flex flex-col gap-10'>
             <h3 className='text-xl font-semibold text-center'>Trusted by These Amazing Brands</h3>
             <div className='relative w-full overflow-hidden'>
                 <motion.div

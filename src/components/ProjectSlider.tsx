@@ -36,7 +36,7 @@ export default function ProjectSlider() {
 
     return (
         <section className='w-full max-w-2xl mx-auto px-4 sm:px-6'>
-            <div className='mt-10'>
+            <div>
                 <Slider {...settings}>
                     {Array.from({ length: 5 }, (_, i) => (
                         <div key={i} className='aspect-[4/3] sm:aspect-[16/9] rounded-lg p-2 sm:p-4'>
