@@ -146,6 +146,12 @@ body {
   border-radius: 0.5em;
   border: 2px dashed transparent;
 }
+.process_section {
+  background: linear-gradient(var(--soft-black), var(--soft-black)) padding-box,
+    linear-gradient(to right, var(--yelly), var(--gold)) border-box;
+  border-radius: 0.5em;
+  border: 2px solid transparent;
+}
 .circle_gradient {
   background: linear-gradient(145deg, var(--yelly), var(--winny));
 }
@@ -159,4 +165,11 @@ body {
 
 .workspace{
   background: linear-gradient(125deg, hsla(48, 100%, 50%, 0.85), hsla(330, 100%, 50%, 0.85))
+}
+.red_gradient {
+  background: linear-gradient(90deg, hsla(330, 100%, 50%, 0.85), hsla(48, 100%, 50%, 0.85));
+}
+
+.red_gradient:hover {
+  background: linear-gradient(90deg, hsla(330, 100%, 50%, 0.6), hsla(48, 100%, 50%, 0.6));
 }
