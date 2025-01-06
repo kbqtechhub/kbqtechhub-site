@@ -1,7 +1,9 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { motion, useTransform, useScroll } from "motion/react";
+import Lenis from 'lenis';
+
 interface HorizontalScrollCarouselProps {
     children: React.ReactNode;
 }
@@ -12,6 +14,28 @@ const HorizontalScrollCarousel = ({ children }: HorizontalScrollCarouselProps) =
         target: targetRef,
     });
 
+    useEffect(() => {
+        const lenis = new Lenis({
+            duration: 0.6,
+            easing: (t) => t,
+            smoothWheel: true,
+            wheelMultiplier: 0.8,
+            touchMultiplier: 1,
+            infinite: false,
+        });
+
+        function raf(time: number) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+
+        return () => {
+            lenis.destroy();
+        };
+    }, []);
+
     const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
 
     return (
@@ -21,9 +45,8 @@ const HorizontalScrollCarousel = ({ children }: HorizontalScrollCarouselProps) =
                     style={{ x }}
                     className="flex gap-4"
                     transition={{
-                        type: "spring",
-                        damping: 300,
-                        stiffness: 10
+                        ease: "linear",
+                        duration: 0.1
                     }}
                 >
                     {children}
