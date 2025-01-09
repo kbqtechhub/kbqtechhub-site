@@ -59,6 +59,7 @@ export default function Navigation() {
                         <NavigationMenuLink
                             className={cn(
                                 navigationMenuTriggerStyle(),
+                                'text-base',
                                 isActive('/') ? 'text-winny !important' : ''
                             )}
                         >
@@ -67,7 +68,7 @@ export default function Navigation() {
                     </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>Services</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className="text-base">Services</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className='grid w-[400px] p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-off-black rounded-md'>
                             {serviceLinks.map((service) => (
@@ -88,6 +89,7 @@ export default function Navigation() {
                         <NavigationMenuLink
                             className={cn(
                                 navigationMenuTriggerStyle(),
+                                'text-base',
                                 isActive('/shop') ? 'text-winny !important' : ''
                             )}
                         >
@@ -100,6 +102,7 @@ export default function Navigation() {
                         <NavigationMenuLink
                             className={cn(
                                 navigationMenuTriggerStyle(),
+                                'text-base',
                                 isActive('/about') ? 'text-winny !important' : ''
                             )}
                         >
@@ -108,10 +111,24 @@ export default function Navigation() {
                     </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
+                    <Link href='/blog' legacyBehavior passHref>
+                        <NavigationMenuLink
+                            className={cn(
+                                navigationMenuTriggerStyle(),
+                                'text-base',
+                                isActive('/blog') ? 'text-winny !important' : ''
+                            )}
+                        >
+                            Blog
+                        </NavigationMenuLink>
+                    </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
                     <Link href='/contact' legacyBehavior passHref>
                         <NavigationMenuLink
                             className={cn(
                                 navigationMenuTriggerStyle(),
+                                'text-base',
                                 isActive('/contact') ? 'text-winny !important' : ''
                             )}
                         >
