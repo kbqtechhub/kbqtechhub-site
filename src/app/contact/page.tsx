@@ -1,7 +1,16 @@
+import ContactHero from '@/components/ContactHero'
+import ContactSection from '@/components/ContactSection'
+import Faq from '@/components/Faq'
+import TrainingEnrollCta from '@/components/TrainingEnrollCta'
 import React from 'react'
 
 export default function ContactPage() {
     return (
-        <div>ContactPage</div>
+        <section className='flex flex-col gap-20 mb-20'>
+            <ContactHero />
+            <ContactSection />
+            <Faq />
+            <TrainingEnrollCta />
+        </section>
     )
 }

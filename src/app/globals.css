@@ -173,3 +173,9 @@ body {
 .red_gradient:hover {
   background: linear-gradient(90deg, hsla(330, 100%, 50%, 0.6), hsla(48, 100%, 50%, 0.6));
 }
+
+.contact_hero{
+  background: linear-gradient(125deg, hsla(48, 100%, 50%, 0.85), hsla(330, 100%, 50%, 0.85)), url('/images/IT-Training.webp');
+  background-position: center;
+  background-size: cover;
+}
