@@ -24,13 +24,13 @@ export default function BlogFilter() {
     };
 
     return (
-        <div className="w-full mb-12 space-y-3">
-            <div className="flex flex-wrap gap-3">
+        <div className="w-full mb-8 md:mb-12 space-y-3">
+            <div className="flex flex-wrap gap-2 md:gap-3 justify-center sm:justify-start">
                 {categories.map((category) => (
                     <button
                         key={category}
                         onClick={() => handleCategoryClick(category)}
-                        className={`px-6 py-2.5 rounded-full transition-all duration-300 text-sm font-medium
+                        className={`px-4 md:px-6 py-2 md:py-2.5 rounded-full transition-all duration-300 text-xs md:text-sm font-medium
                             ${activeCategory === category
                                 ? 'bg-winny text-white shadow-lg shadow-winny/50 transform scale-105'
                                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:shadow-md hover:scale-102'
