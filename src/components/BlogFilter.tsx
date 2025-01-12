@@ -20,7 +20,7 @@ export default function BlogFilter() {
         } else {
             params.set('category', category);
         }
-        router.push(`${pathname}?${params.toString()}`);
+        router.replace(`${pathname}?${params.toString()}`, { scroll: false });
     };
 
     return (
