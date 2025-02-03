@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaEnvelope, FaPhone } from "react-icons/fa6";
 import Link from 'next/link';
-import { SocialIcons } from '@/data/services';
+import { SocialIcons } from '@/data';
 
 export default function Footer() {
     return (

@@ -2,8 +2,16 @@
 
 import React from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
+import { getUniqueCategories } from '@/data';
 
-const IMPORTANT_CATEGORIES = ['All', 'Web Development', 'Mobile Development', 'Cloud Computing', 'DevOps'];
+const CATEGORY_DESCRIPTIONS: Record<string, string> = {
+    'All': 'Browse all our technical articles and tutorials',
+    'Computing': 'Explore computing concepts and technologies',
+    'AI & Healthcare': 'Discover the intersection of AI and healthcare innovations',
+    'Cybersecurity': 'Learn about security practices and protecting digital assets',
+    'Networking': 'Understanding network technologies and infrastructure',
+    'Blockchain': 'Explore blockchain technology and its applications'
+};
 
 export default function BlogFilter() {
     const searchParams = useSearchParams();
@@ -11,7 +19,7 @@ export default function BlogFilter() {
     const pathname = usePathname();
 
     const activeCategory = searchParams.get('category') || 'All';
-    const categories = IMPORTANT_CATEGORIES;
+    const categories = getUniqueCategories();
 
     const handleCategoryClick = (category: string) => {
         const params = new URLSearchParams(searchParams.toString());
@@ -40,6 +48,9 @@ export default function BlogFilter() {
                     </button>
                 ))}
             </div>
+            <p className="text-center sm:text-left text-sm text-gray-600 mt-2">
+                {CATEGORY_DESCRIPTIONS[activeCategory as keyof typeof CATEGORY_DESCRIPTIONS]}
+            </p>
         </div>
     );
 }

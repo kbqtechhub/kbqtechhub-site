@@ -1,5 +1,5 @@
 import React from 'react';
-import { Blogs } from '@/data/services';
+import { Blogs } from '@/data';
 import type { Blog } from '@/types';
 import { Button } from './ui/button';
 import Link from 'next/link';

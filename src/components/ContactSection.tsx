@@ -1,4 +1,4 @@
-import { SocialIcons } from '@/data/services'
+import { SocialIcons } from '@/data'
 import Link from 'next/link'
 import React from 'react'
 import { FaEnvelope, FaPhone } from 'react-icons/fa6'
