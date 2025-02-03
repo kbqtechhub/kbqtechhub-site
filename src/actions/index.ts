@@ -176,3 +176,31 @@ export const getUniqueCategories = cache(async () => {
     const categories = Blogs.map(blog => blog.category);
     return ['All', ...new Set(categories)];
 });
+
+export const getBlogBySlug = cache(async (slug: string) => {
+    try {
+        const blog = Blogs.find(blog => blog.slug === slug);
+
+        if (!blog) {
+            return {
+                blog: null,
+                error: 'Blog post not found',
+                success: false
+            };
+        }
+
+        return {
+            blog: { ...blog },
+            error: null,
+            success: true
+        };
+    } catch (error) {
+        console.error('Blog Fetch Error:', error);
+
+        return {
+            blog: null,
+            error: 'Failed to fetch blog post',
+            success: false
+        };
+    }
+});
