@@ -3,7 +3,6 @@ import React from 'react'
 export default function BlogFilterSkeleton() {
     return (
         <div className="space-y-4">
-            {/* Search skeleton */}
             <div className="w-full h-10 bg-gray-200 rounded-md animate-pulse" />
 
             {/* Categories skeleton */}
