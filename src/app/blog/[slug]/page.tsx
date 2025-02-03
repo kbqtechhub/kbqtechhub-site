@@ -25,7 +25,7 @@ export default async function BlogPostPage({
                 <span className="font-medium">Back to Blog</span>
             </Link>
             <SingleBlogCard blog={response.blog} />
-            <BlogComments />
+            <BlogComments comments={response.blog?.comments} />
         </section>
     )
 }

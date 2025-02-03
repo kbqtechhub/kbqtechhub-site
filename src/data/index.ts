@@ -83,7 +83,9 @@ const Blogs = [
                 user: 'Robert Brown',
                 comment: 'AI in healthcare is a game changer! Can’t wait to see where it leads.',
                 replies: [
-                    { user: 'Alice Johnson', reply: 'Same here! The potential for improving patient outcomes is huge.' }
+                    { user: 'Alice Johnson', reply: 'Same here! The potential for improving patient outcomes is huge.' },
+                    { user: 'Stephen Amoah', reply: 'Same here! The potential for improving patient outcomes is huge.' },
+                    { user: 'Lydia Mensah', reply: 'Same here! The potential for improving patient outcomes is huge.' },
                 ]
             }
         ]
