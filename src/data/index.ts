@@ -9,7 +9,7 @@ const SocialIcons = [
     {
         name: 'Instagram',
         icon: FaInstagram,
-        link: 'https://instagram.com'
+        link: 'https://instagram.com/kbqtechhub'
     },
     {
         name: 'Snapchat',
@@ -19,7 +19,7 @@ const SocialIcons = [
     {
         name: 'Twitter',
         icon: FaSquareXTwitter,
-        link: 'https://twitter.com'
+        link: 'https://twitter.com/kbqtechhub'
     },
     {
         name: 'Telegram',
