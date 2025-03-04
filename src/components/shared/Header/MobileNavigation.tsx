@@ -75,17 +75,20 @@ export default function MobileNavigation() {
 
     return (
         <div className="md:hidden">
-            <button
-                onClick={() => setIsOpen(!isOpen)}
-                className={`${isOpen && 'fixed'} top-4 right-4 z-50 p-2 rounded-lg bg-pure-black text-yelly hover:text-winny transition-colors duration-200`}
-                aria-label="Toggle navigation menu"
-            >
-                {isOpen ? (
-                    <HiX className="w-6 h-6" />
-                ) : (
-                    <HiMenu className="w-6 h-6" />
-                )}
-            </button>
+            <div>
+                <h1>LOGO</h1>
+                <button
+                    onClick={() => setIsOpen(!isOpen)}
+                    className={`${isOpen && 'fixed'} top-4 right-4 z-50 p-2 rounded-lg bg-pure-black text-yelly hover:text-winny transition-colors duration-200`}
+                    aria-label="Toggle navigation menu"
+                >
+                    {isOpen ? (
+                        <HiX className="w-6 h-6" />
+                    ) : (
+                        <HiMenu className="w-6 h-6" />
+                    )}
+                </button>
+            </div>
 
             <AnimatePresence>
                 {isOpen && (
