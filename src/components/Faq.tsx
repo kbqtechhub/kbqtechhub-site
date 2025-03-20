@@ -69,7 +69,7 @@ export default function Faq() {
                         >
                             <AccordionItem
                                 value={`item-${index}`}
-                                className="border-none rounded-lg sm:rounded-xl bg-light-black overflow-hidden"
+                                className="border-none rounded-lg sm:rounded-xl bg-darker-gray overflow-hidden"
                             >
                                 <AccordionTrigger className="px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg text-white hover:no-underline [&[data-state=open]>div]:rotate-45 text-left">
                                     {faq.question}

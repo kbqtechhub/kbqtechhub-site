@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 export default function BlogCard({ blog }: { blog: (typeof Blogs)[0] }) {
     return (
-        <div className="group bg-[var(--pure-black)] backdrop-blur-sm rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:shadow-[var(--yelly)]/20 hover:scale-[1.02] hover:bg-[var(--soft-black)]">
+        <div className="group bg-pure-black backdrop-blur-sm rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:scale-[1.02] hover:bg-off-black">
             <div className="relative h-56 w-full overflow-hidden">
                 <Image
                     src={blog.image}
@@ -15,7 +15,7 @@ export default function BlogCard({ blog }: { blog: (typeof Blogs)[0] }) {
                     className="object-cover transform transition-transform duration-300 group-hover:scale-110"
                 />
                 {blog.popular && (
-                    <span className="absolute top-4 right-4 red_gradient text-[var(--white)] px-3 py-1 rounded-full text-sm font-semibold">
+                    <span className="absolute top-4 right-4 red_gradient text-white px-3 py-1 rounded-full text-sm font-semibold">
                         Popular
                     </span>
                 )}
@@ -23,19 +23,19 @@ export default function BlogCard({ blog }: { blog: (typeof Blogs)[0] }) {
             </div>
             <div className="p-6">
                 <div className="flex items-center justify-between mb-3">
-                    <span className="text_gradient bg-clip-text text-transparent px-3 py-1 rounded-full text-sm font-semibold border border-[var(--muted-yelly)]">
+                    <span className="text_gradient bg-clip-text text-transparent px-3 py-1 rounded-full text-sm font-semibold border border-muted-yelly">
                         {blog.category}
                     </span>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-[var(--white)] line-clamp-2 group-hover:text-[var(--yelly)] transition-colors">
+                <h3 className="text-xl font-bold mb-3 text-white line-clamp-2 group-hover:text-yelly transition-colors">
                     {blog.title}
                 </h3>
-                <p className="text-[var(--graphite-gray)] line-clamp-3 mb-4 text-sm">
+                <p className="text-graphite-gray line-clamp-3 mb-4 text-sm">
                     {blog.description}
                 </p>
                 <Link
                     href={`/blog/${blog.slug}`}
-                    className="inline-flex items-center gap-2 text-[var(--yelly)] font-medium hover:text-[var(--winny)] hover:gap-4 transition-all duration-300"
+                    className="inline-flex items-center gap-2 text-yelly font-medium hover:text-winny hover:gap-4 transition-all duration-300"
                 >
                     <span>Read More</span>
                     <FaArrowRight className="text-sm" />
