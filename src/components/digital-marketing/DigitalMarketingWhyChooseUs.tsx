@@ -56,20 +56,20 @@ export default function DigitalMarketingWhyChooseUs() {
           </p>
         </motion.div>
         
-        <div className="flex flex-wrap justify-center items-start gap-8 mx-auto">
+        <div className="flex flex-wrap justify-center items-stretch gap-8 mx-auto">
           {reasons.map((reason, index) => (
             <motion.div 
               key={index}
               className={`relative bg-soft-black p-8 rounded-lg border-2 border-transparent 
-                        w-full md:w-[calc(50%-2rem)] lg:w-[calc(25%-1.5rem)]
+                        w-full md:w-[calc(50%-2rem)] lg:w-[calc(25%-1.5rem)] flex flex-col
                         transition-all duration-200 ${hoveredIndex === index ? 'z-20' : 'z-10'}`}
-              style={{
-                transform: index % 2 === 0 ? 'translateY(0)' : 'translateY(2rem)'
-              }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              whileInView={{
+                opacity: 1,
+                y: index % 2 === 0 ? 0 : 16
+              }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
             >
@@ -87,7 +87,7 @@ export default function DigitalMarketingWhyChooseUs() {
               </div>
               
               <h3 className="text-xl font-bold mb-3 text-yelly">{reason.title}</h3>
-              <p className="text-white leading-relaxed">{reason.description}</p>
+              <p className="text-white leading-relaxed flex-grow">{reason.description}</p>
               
               {/* Simple indicator on hover */}
               {hoveredIndex === index && (

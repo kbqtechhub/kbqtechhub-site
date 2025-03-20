@@ -93,6 +93,16 @@
   background: linear-gradient(to bottom, var(--color-soft-yelly), var(--color-soft-wine));
 }
 
+/* Text selection styling */
+::selection {
+  background-color: var(--color-yelly);
+  color: var(--color-winny);
+}
+
+::-moz-selection {
+  background-color: var(--color-yelly);
+  color: var(--color-winny);
+}
 body {
   color: var(--color-yelly);
     background: var(--color-soft-black);

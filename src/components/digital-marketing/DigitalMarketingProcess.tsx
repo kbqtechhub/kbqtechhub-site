@@ -43,7 +43,7 @@ export default function DigitalMarketingProcess() {
     ];
 
   return (
-      <section className="w-full py-16 px-4 md:px-8 bg-pure-black">
+      <section className="w-full py-16 px-4 md:px-8 bg-pure-black rounded-b-2xl">
           <div className="max-w-7xl mx-auto">
               <div className="text-center mb-14">
                   <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-transparent bg-clip-text mx-auto w-fit bg-gradient-to-r from-yelly to-winny">

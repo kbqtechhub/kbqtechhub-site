@@ -65,9 +65,9 @@ export default function DigitalMarketingServices() {
               <h3 className="text-xl md:text-2xl font-semibold mb-2 md:mb-4 text-yelly">{service.title}</h3>
               <p className="text-sm md:text-base text-white mb-2 md:mb-4">{service.description}</p>
               <p className="text-xs md:text-sm text-graphite-gray italic mb-4 md:mb-6">{service.details}</p>
-              <button className="mt-auto py-1.5 md:py-2 px-4 md:px-6 rounded-full text-xs md:text-sm font-medium bg-gradient-to-r from-yelly/20 to-winny/20 hover:from-yelly/40 hover:to-winny/40 border border-yelly/30 transition-all duration-300">
+              {/* <button className="mt-auto py-1.5 md:py-2 px-4 md:px-6 rounded-full text-xs md:text-sm font-medium bg-gradient-to-r from-yelly/20 to-winny/20 hover:from-yelly/40 hover:to-winny/40 border border-yelly/30 transition-all duration-300">
                 Learn More
-              </button>
+              </button> */}
             </div>
           ))}
         </div>
