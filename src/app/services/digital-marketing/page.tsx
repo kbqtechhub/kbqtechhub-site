@@ -3,7 +3,7 @@ import DigitalMarketingHero from '@/components/digital-marketing/DigitalMarketin
 import DigitalMarketingServices from '@/components/digital-marketing/DigitalMarketingServices'
 import DigitalMarketingProcess from '@/components/digital-marketing/DigitalMarketingProcess'
 import DigitalMarketingWhyChooseUs from '@/components/digital-marketing/DigitalMarketingWhyChooseUs'
-import DigitalMarketingFaq from '@/components/digital-marketing/DigitalMarketingFaq'
+// import DigitalMarketingFaq from '@/components/digital-marketing/DigitalMarketingFaq'
 import DigitalMarketingEnrollCta from '@/components/digital-marketing/DigitalMarketingEnrollCta'
 
 export default function DigitalMarketingPage() {
@@ -13,7 +13,7 @@ export default function DigitalMarketingPage() {
             <DigitalMarketingServices />
             <DigitalMarketingProcess />
             <DigitalMarketingWhyChooseUs />
-            <DigitalMarketingFaq />
+            {/* <DigitalMarketingFaq /> */}
             <DigitalMarketingEnrollCta />
         </section>
     )
