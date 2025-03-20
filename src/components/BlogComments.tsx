@@ -33,7 +33,7 @@ export default function BlogComments({ comments = [] }: CommentProps) {
                         value={userName}
                         onChange={(e) => setUserName(e.target.value)}
                         placeholder="Your name"
-                        className="w-full p-2 rounded-md bg-[var(--pure-black)] border border-[var(--graphite-gray)] text-[var(--white)]"
+                        className="w-full p-2 rounded-md bg-pure-black border border-graphite-gray text-white"
                         required
                     />
                 </div>
@@ -42,13 +42,13 @@ export default function BlogComments({ comments = [] }: CommentProps) {
                         value={newComment}
                         onChange={(e) => setNewComment(e.target.value)}
                         placeholder="Add a comment..."
-                        className="w-full p-2 rounded-md bg-[var(--pure-black)] border border-[var(--graphite-gray)] text-[var(--white)] min-h-[100px]"
+                        className="w-full p-2 rounded-md bg-pure-black border border-graphite-gray text-white min-h-[100px]"
                         required
                     />
                 </div>
                 <button
                     type="submit"
-                    className="red_gradient px-6 py-2 rounded-md text-[var(--white)] font-semibold"
+                    className="red_gradient px-6 py-2 rounded-md text-white font-semibold"
                 >
                     Post Comment
                 </button>
