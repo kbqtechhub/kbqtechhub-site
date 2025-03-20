@@ -43,7 +43,7 @@ export default function Testimonials() {
 
     return (
         <section className='bg-gold h-fit md:min-h-[80vh] px-8 py-16 md:p-16 flex flex-col gap-10 rounded-3xl shadow-2xl'>
-            <h3 className='text-background text-xl md:text-2xl font-semibold text-center'>Client Testimonials</h3>
+            <h3 className='text-white text-xl md:text-2xl font-semibold text-center'>Client Testimonials</h3>
             <Slider {...settings}>
                 {Array(4).fill(0).map((_, index) => <div key={index} className='bg-soft-black max-w-[25rem] mx-auto relative border-[6px] md:border-[10px] border-background rounded-tl-[10%] rounded-tr-[10%] rounded-br-[10%] p-6 md:p-10 md:my-10 text-white'>
                     <div className='flex flex-col gap-4 md:gap-6'>

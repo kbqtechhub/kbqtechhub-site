@@ -1,9 +1,7 @@
 "use client";
 
 import React from 'react'
-import { FaArrowRightLong } from "react-icons/fa6";
-import { motion } from 'motion/react'
-import SectionTitle from './shared/SectionTitle';
+
 import TextGradient from './shared/TextGradient';
 
 const values = [

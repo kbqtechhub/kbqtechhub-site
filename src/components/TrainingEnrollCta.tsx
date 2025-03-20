@@ -13,7 +13,7 @@ export default function TrainingEnrollCta() {
             <div className='relative z-10 text-center max-w-2xl flex flex-col gap-4 px-4'>
                 <h3 className='text-white text-3xl font-bold'>Transform Your Career with Expert IT Training</h3>
                 <p className='text-white'>Unlock the skills you need to excel in web development and thrive in today's tech-driven world.</p>
-                <button className='bg-background w-fit py-2 text-soft-black hover:bg-gray-200 hover:text-light-black px-10 self-center rounded-tl-3xl rounded-br-3xl rounded-sm'>Enroll Now</button>
+                <button className='bg-white w-fit py-2 text-soft-black hover:bg-white hover:text-light-black px-10 self-center rounded-tl-3xl rounded-br-3xl rounded-sm'>Enroll Now</button>
             </div>
         </section>
     )

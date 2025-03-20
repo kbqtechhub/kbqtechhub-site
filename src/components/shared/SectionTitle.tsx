@@ -2,11 +2,13 @@ import React from 'react'
 
 interface SectionTitleProps {
     title: string;
-    color?: 'black' | 'yellow';
+    color?: 'yellow' | 'pure-black';
 }
 
-export default function SectionTitle({ title, color = 'black' }: SectionTitleProps) {
-    const textColor = color === 'yellow' ? 'var(--yelly)' : 'var(--soft-black)';
+export default function SectionTitle({ title, color = 'pure-black' }: SectionTitleProps) {
+    const textColor =
+        color === 'yellow' ? 'var(--color-yelly)' :
+            'var(--color-pure-black)';
 
     return (
         <h2

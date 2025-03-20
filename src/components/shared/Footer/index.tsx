@@ -12,7 +12,7 @@ export default function Footer() {
                         <div className='flex-1 w-full'>
                             <h2 className='text-3xl md:text-5xl text-graphite-gray font-black'>One Hub, Endless Digital Possibilities.</h2>
                             <form className='flex flex-col md:flex-row gap-3 items-start md:items-center'>
-                                <input type="email" placeholder="Enter your email address" className='w-full md:w-1/2 px-3 text-white py-2 my-4 bg-light-black outline-none rounded-lg hover:bg-darker-gray placeholder:italic' />
+                                <input type="email" placeholder="Enter your email address" className='w-full md:w-1/2 px-3 text-white py-2 my-4 bg-darker-gray outline-none rounded-lg hover:bg-dark-gray placeholder:italic' />
                                 <button type="submit" className='bg-gold font-medium text-white py-2 px-6 rounded-lg hover:bg-muted-yelly w-full md:w-auto'>Subscribe</button>
                             </form>
                         </div>
