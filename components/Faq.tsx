@@ -74,19 +74,12 @@ export default function Faq() {
                                 <AccordionTrigger className="px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg text-white hover:no-underline [&[data-state=open]>div]:rotate-45 text-left">
                                     {faq.question}
                                 </AccordionTrigger>
-                                <AnimatePresence>
                                     <AccordionContent className="px-4 sm:px-6 py-3 sm:py-4">
-                                        <motion.p
-                                            initial={{ opacity: 0, height: 0 }}
-                                            animate={{ opacity: 1, height: "auto" }}
-                                            exit={{ opacity: 0, height: 0 }}
-                                            transition={{ duration: 0.3 }}
-                                            className="text-gold text-sm sm:text-base"
+                                        <p className="text-gold text-sm sm:text-base"
                                         >
                                             {faq.answer}
-                                        </motion.p>
+                                        </p>
                                     </AccordionContent>
-                                </AnimatePresence>
                             </AccordionItem>
                         </motion.div>
                     ))}
