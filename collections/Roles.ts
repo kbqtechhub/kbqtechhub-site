@@ -8,7 +8,7 @@ export const Roles: CollectionConfig = {
   },
   access: {
     // Only admins can manage roles
-    // read: () => true, // Everyone can read roles
+    read: () => true, // Everyone can read roles
     // create: ({ req }) => req.user?.roles === 'admin',
     // update: ({ req }) => req.user?.roles === 'admin',
     // delete: ({ req }) => req.user?.roles === 'admin',
@@ -69,15 +69,15 @@ export const Roles: CollectionConfig = {
       ]
     }
   ],
-  // hooks: {
-  //   beforeValidate: [
-  //     // Add default roles on initial create
-  //     async ({ operation, req, data }) => {
-  //       if (operation === 'create') {
-  //         // No need to add defaults if roles already exist
-  //         return data;
-  //       }
-  //     }
-  //   ]
-  // }
+  hooks: {
+    beforeValidate: [
+      // Add default roles on initial create
+      async ({ operation, req, data }) => {
+        if (operation === 'create') {
+          // No need to add defaults if roles already exist
+          return data;
+        }
+      }
+    ]
+  }
 }

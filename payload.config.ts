@@ -19,12 +19,13 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
+  collections: [Users, Media, Blog, Categories, Store, Roles, GadgetCategories, GadgetTags],
   cors: '*',
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
-  collections: [Users, Media, Blog, Categories, Store, Roles, GadgetCategories, GadgetTags],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
+    autoGenerate: true,
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
   db: mongooseAdapter({
