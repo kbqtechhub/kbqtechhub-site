@@ -19,6 +19,12 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
+  admin: {
+    livePreview: {
+      url: 'http://localhost:3000',
+      collections: ['pages'],
+    },
+  },
   collections: [Users, Media, Blog, Categories, Store, Roles, GadgetCategories, GadgetTags],
   cors: '*',
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
