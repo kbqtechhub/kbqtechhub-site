@@ -85,8 +85,9 @@ export default function Navigation() {
                     </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <Link href='/shop'>
-                        <NavigationMenuLink
+
+                    <NavigationMenuLink
+                        href='/shop'
                             className={cn(
                                 navigationMenuTriggerStyle(),
                                 'text-base',
@@ -95,11 +96,12 @@ export default function Navigation() {
                         >
                             Shop
                         </NavigationMenuLink>
-                    </Link>
+
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <Link href='/about'>
-                        <NavigationMenuLink
+
+                    <NavigationMenuLink
+                        href='/about'
                             className={cn(
                                 navigationMenuTriggerStyle(),
                                 'text-base',
@@ -107,12 +109,11 @@ export default function Navigation() {
                             )}
                         >
                             About
-                        </NavigationMenuLink>
-                    </Link>
+                    </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <Link href='/blog'>
                         <NavigationMenuLink
+                        href='/blog'
                             className={cn(
                                 navigationMenuTriggerStyle(),
                                 'text-base',
@@ -120,12 +121,11 @@ export default function Navigation() {
                             )}
                         >
                             Blog
-                        </NavigationMenuLink>
-                    </Link>
+                    </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <Link href='/contact'>
-                        <NavigationMenuLink
+                    <NavigationMenuLink
+                        href='/contact'
                             className={cn(
                                 navigationMenuTriggerStyle(),
                                 'text-base',
@@ -134,7 +134,7 @@ export default function Navigation() {
                         >
                             Contact
                         </NavigationMenuLink>
-                    </Link>
+
                 </NavigationMenuItem>
             </NavigationMenuList>
         </NavigationMenu>
