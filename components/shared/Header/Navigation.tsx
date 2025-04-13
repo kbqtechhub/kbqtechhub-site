@@ -55,7 +55,7 @@ export default function Navigation() {
         <NavigationMenu className='hidden md:block text-primary w-full'>
             <NavigationMenuList>
                 <NavigationMenuItem>
-                    <Link href='/' legacyBehavior passHref>
+                    <Link href='/'>
                         <NavigationMenuLink
                             className={cn(
                                 navigationMenuTriggerStyle(),
@@ -85,7 +85,7 @@ export default function Navigation() {
                     </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <Link href='/shop' legacyBehavior passHref>
+                    <Link href='/shop'>
                         <NavigationMenuLink
                             className={cn(
                                 navigationMenuTriggerStyle(),
@@ -98,7 +98,7 @@ export default function Navigation() {
                     </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <Link href='/about' legacyBehavior passHref>
+                    <Link href='/about'>
                         <NavigationMenuLink
                             className={cn(
                                 navigationMenuTriggerStyle(),
@@ -111,7 +111,7 @@ export default function Navigation() {
                     </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <Link href='/blog' legacyBehavior passHref>
+                    <Link href='/blog'>
                         <NavigationMenuLink
                             className={cn(
                                 navigationMenuTriggerStyle(),
@@ -124,7 +124,7 @@ export default function Navigation() {
                     </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <Link href='/contact' legacyBehavior passHref>
+                    <Link href='/contact'>
                         <NavigationMenuLink
                             className={cn(
                                 navigationMenuTriggerStyle(),

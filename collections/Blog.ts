@@ -1,4 +1,4 @@
-import type { CollectionConfig } from 'payload'
+import type { CollectionConfig, CollectionSlug } from 'payload'
 import { slugField } from '@/lib/slugField';
 
 export const Blog: CollectionConfig = {
@@ -62,8 +62,8 @@ export const Blog: CollectionConfig = {
     },
     {
       name: 'category',
-      type: 'select',
-      options: ['Computing', 'AI & Healthcare', 'Cybersecurity', 'Networking', 'Blockchain'],
+      type: 'relationship',
+      relationTo: 'categories' as CollectionSlug,
       required: true,
     },
     {
@@ -120,8 +120,132 @@ export const Blog: CollectionConfig = {
       },
     },
     {
+      name: 'featured',
+      label: 'Featured Post',
+      type: 'checkbox',
+      defaultValue: false,
+      admin: {
+        position: 'sidebar',
+        description: 'Mark this post to be featured prominently',
+      },
+    },
+    {
+      name: 'coverImageAltText',
+      label: 'Image Alt Text',
+      type: 'text',
+      admin: {
+        description: 'Describe the image for accessibility',
+      },
+    },
+    {
+      name: 'lastModified',
+      type: 'date',
+      admin: {
+        position: 'sidebar',
+        description: 'Date when this post was last updated',
+      },
+    },
+    {
+      name: 'seo',
+      type: 'group',
+      admin: {
+        description: 'SEO settings for this blog post',
+      },
+      fields: [
+        {
+          name: 'metaTitle',
+          label: 'Meta Title',
+          type: 'text',
+          admin: {
+            description: 'Custom title for search engines. Defaults to post title if empty.',
+          },
+        },
+        {
+          name: 'metaDescription',
+          label: 'Meta Description',
+          type: 'textarea',
+          admin: {
+            description: 'Brief description for search results (recommended: 150-160 characters)',
+          },
+        },
+        {
+          name: 'metaKeywords',
+          label: 'Meta Keywords',
+          type: 'text',
+          admin: {
+            description: 'Comma-separated keywords (optional)',
+          },
+        },
+        {
+          name: 'canonicalUrl',
+          label: 'Canonical URL',
+          type: 'text',
+          admin: {
+            description: 'Use only if this content exists elsewhere and this is a duplicate',
+          },
+        },
+        {
+          name: 'ogImage',
+          label: 'Social Sharing Image',
+          type: 'upload',
+          relationTo: 'media',
+          admin: {
+            description: 'Image shown when shared on social media (if different from post image)',
+          },
+        },
+        {
+          name: 'ogTitle',
+          label: 'Social Sharing Title',
+          type: 'text',
+          admin: {
+            description: 'Custom title for social sharing (defaults to post title if empty)',
+          },
+        },
+        {
+          name: 'ogDescription',
+          label: 'Social Sharing Description',
+          type: 'textarea',
+          admin: {
+            description: 'Custom description for social sharing',
+          },
+        },
+      ],
+    },
+    {
+      name: 'relatedPosts',
+      label: 'Related Posts',
+      type: 'relationship',
+      relationTo: 'blogs' as CollectionSlug,
+      hasMany: true,
+      admin: {
+        description: 'Select posts that are related to this one',
+      },
+    },
+    {
+      name: 'sources',
+      label: 'Sources & References',
+      type: 'array',
+      admin: {
+        description: 'Add citations or reference links',
+      },
+      fields: [
+        {
+          name: 'title',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'url',
+          type: 'text',
+        },
+      ],
+    },
+    {
       name: 'comments',
       type: 'array',
+      admin: {
+        description: 'Comments on this blog post',
+      },
       fields: [
         {
           name: 'user',
@@ -129,9 +253,73 @@ export const Blog: CollectionConfig = {
           required: true,
         },
         {
+          name: 'userEmail',
+          type: 'email',
+          admin: {
+            description: 'Email of commenter (hidden from public view)',
+          },
+        },
+        {
+          name: 'userAvatar',
+          type: 'upload',
+          relationTo: 'media',
+          admin: {
+            description: 'User profile image',
+          },
+        },
+        {
           name: 'comment',
           type: 'textarea',
           required: true,
+        },
+        {
+          name: 'createdAt',
+          type: 'date',
+          admin: {
+            readOnly: true,
+            position: 'sidebar',
+          },
+          defaultValue: () => new Date(),
+        },
+        {
+          name: 'updatedAt',
+          type: 'date',
+          admin: {
+            readOnly: true,
+            position: 'sidebar',
+            description: 'Last edit timestamp',
+          },
+        },
+        {
+          name: 'status',
+          type: 'select',
+          defaultValue: 'pending',
+          options: [
+            { label: 'Pending', value: 'pending' },
+            { label: 'Approved', value: 'approved' },
+            { label: 'Spam', value: 'spam' },
+            { label: 'Deleted', value: 'deleted' },
+          ],
+          admin: {
+            description: 'Moderation status',
+          },
+          required: true,
+        },
+        {
+          name: 'likes',
+          type: 'number',
+          defaultValue: 0,
+          admin: {
+            description: 'Number of likes/upvotes',
+          },
+        },
+        {
+          name: 'ipAddress',
+          type: 'text',
+          admin: {
+            description: 'IP address (for moderation purposes)',
+            position: 'sidebar',
+          },
         },
         {
           name: 'replies',
@@ -143,9 +331,42 @@ export const Blog: CollectionConfig = {
               required: true,
             },
             {
+              name: 'userEmail',
+              type: 'email',
+            },
+            {
+              name: 'userAvatar',
+              type: 'upload',
+              relationTo: 'media',
+            },
+            {
               name: 'reply',
               type: 'textarea',
               required: true,
+            },
+            {
+              name: 'createdAt',
+              type: 'date',
+              defaultValue: () => new Date(),
+              admin: {
+                readOnly: true,
+              },
+            },
+            {
+              name: 'status',
+              type: 'select',
+              defaultValue: 'pending',
+              options: [
+                { label: 'Pending', value: 'pending' },
+                { label: 'Approved', value: 'approved' },
+                { label: 'Spam', value: 'spam' },
+                { label: 'Deleted', value: 'deleted' },
+              ],
+            },
+            {
+              name: 'likes',
+              type: 'number',
+              defaultValue: 0,
             },
           ],
         },
@@ -153,20 +374,4 @@ export const Blog: CollectionConfig = {
     },
   ],
 };
-// This collection configures a blog post with various fields including title, description, image, category, content, author, published date, tags, and comments.
-// The comments field is an array of objects, each containing a user and comment, and can also have replies.
-// The collection is accessible to all users and has a sidebar for easy navigation.
-// The 'readTime' field is a text field that can be used to store the estimated reading time for the blog post.
-// The 'views' and 'likes' fields are number fields that can be used to track the number of views and likes for the blog post.
-// The 'popular' field is a checkbox that can be used to mark the blog post as popular.
-// The 'slug' field is a unique text field that can be used to create a URL-friendly version of the blog post title.
-// The 'image' field is an upload field that allows users to upload an image for the blog post.
-// The 'category' field is a select field that allows users to choose a category for the blog post from a predefined list.
-// The 'tags' field is an array of text fields that can be used to store tags related to the blog post.
-// The 'publishedDate' field is a date field that can be used to store the date the blog post was published.
-// The 'author' field is a text field that can be used to store the name of the author of the blog post.
-// The 'content' field is a rich text field that allows users to format the content of the blog post.
-// The 'description' field is a textarea field that can be used to store a brief description of the blog post.
-// The 'comments' field is an array of objects, each containing a user and comment, and can also have replies.
-// The 'replies' field is an array of objects, each containing a user and reply, that can be used to store replies to comments.
 

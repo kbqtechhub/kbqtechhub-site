@@ -10,7 +10,10 @@ const nextConfig: NextConfig = {
         hostname: "images.pexels.com",
       }
     ]
-  }
+  },
+  turbopack: {
+    resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.json'],
+  },
 };
 
 export default withPayload(nextConfig);
