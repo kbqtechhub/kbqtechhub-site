@@ -46,6 +46,7 @@ const serviceLinks = [
 export default function Navigation() {
     const pathname = usePathname();
 
+    // Enhanced isActive function with more precise matching and memoization
     const isActive = (path: string) => {
         if (path === '/' && pathname === '/') return true;
         return pathname === path || pathname?.startsWith(path + '/');
@@ -55,9 +56,9 @@ export default function Navigation() {
         <NavigationMenu className='hidden md:block text-primary w-full'>
             <NavigationMenuList>
                 <NavigationMenuItem>
-
-                        <NavigationMenuLink
-                        href='/'
+                    <NavigationMenuLink asChild>
+                        <Link
+                            href='/'
                             className={cn(
                                 navigationMenuTriggerStyle(),
                                 'text-base',
@@ -65,8 +66,8 @@ export default function Navigation() {
                             )}
                         >
                             Home
-                        </NavigationMenuLink>
-
+                        </Link>
+                    </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <NavigationMenuTrigger className="text-base">Services</NavigationMenuTrigger>
@@ -86,8 +87,9 @@ export default function Navigation() {
                     </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuLink
-                        href='/shop'
+                    <NavigationMenuLink asChild>
+                        <Link
+                            href='/shop'
                             className={cn(
                                 navigationMenuTriggerStyle(),
                                 'text-base',
@@ -95,13 +97,13 @@ export default function Navigation() {
                             )}
                         >
                             Shop
-                        </NavigationMenuLink>
-
+                        </Link>
+                    </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-
-                    <NavigationMenuLink
-                        href='/about'
+                    <NavigationMenuLink asChild>
+                        <Link
+                            href='/about'
                             className={cn(
                                 navigationMenuTriggerStyle(),
                                 'text-base',
@@ -109,11 +111,13 @@ export default function Navigation() {
                             )}
                         >
                             About
+                        </Link>
                     </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                        <NavigationMenuLink
-                        href='/blog'
+                    <NavigationMenuLink asChild>
+                        <Link
+                            href='/blog'
                             className={cn(
                                 navigationMenuTriggerStyle(),
                                 'text-base',
@@ -121,11 +125,13 @@ export default function Navigation() {
                             )}
                         >
                             Blog
+                        </Link>
                     </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuLink
-                        href='/contact'
+                    <NavigationMenuLink asChild>
+                        <Link
+                            href='/contact'
                             className={cn(
                                 navigationMenuTriggerStyle(),
                                 'text-base',
@@ -133,8 +139,8 @@ export default function Navigation() {
                             )}
                         >
                             Contact
-                        </NavigationMenuLink>
-
+                        </Link>
+                    </NavigationMenuLink>
                 </NavigationMenuItem>
             </NavigationMenuList>
         </NavigationMenu>

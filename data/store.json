@@ -1,0 +1,119 @@
+{
+  "store": {
+    "reviews": [
+      {
+        "id": "lenovo-legion-5-2024",
+        "name": "Lenovo Legion 5 (2024)",
+        "image": "https://images.pexels.com/photos/205421/pexels-photo-205421.jpeg",
+        "specs": {
+          "processor": "AMD Ryzen 7 7840HS",
+          "ram": "16GB DDR5",
+          "storage": "512GB NVMe SSD",
+          "graphics": "NVIDIA RTX 4060 (8GB GDDR6)",
+          "display": "15.6” FHD 165Hz IPS",
+          "battery": "80Wh — up to 8 hours"
+        },
+        "rating": 4.5,
+        "performance_summary": "Smooth multitasking, great for video editing and gaming. Averaged 80-100 FPS in AAA titles at high settings.",
+        "battery_life": "6-7 hours on mixed usage, 3-4 hours under heavy load.",
+        "display_quality": "FHD 165Hz IPS with 100% sRGB color accuracy. Excellent for creators.",
+        "pros": [
+          "Strong CPU & GPU combo",
+          "Color-accurate, high refresh display",
+          "Solid build quality",
+          "Great value for price"
+        ],
+        "cons": ["Gets warm under load", "Bulky charger", "No SD card reader"],
+        "final_verdict": "If you need a laptop under $1200 for creative work and gaming, the Legion 5 2024 is an outstanding choice.",
+        "affiliate_link": "https://www.amazon.com/dp/example-link"
+      },
+      {
+        "id": "asus-zenbook-14x-oled-2024",
+        "name": "ASUS Zenbook 14X OLED (2024)",
+        "image": "https://images.pexels.com/photos/812264/pexels-photo-812264.jpeg",
+        "specs": {
+          "processor": "Intel Core i7-1360P",
+          "ram": "16GB LPDDR5",
+          "storage": "1TB NVMe SSD",
+          "graphics": "Intel Iris Xe",
+          "display": "14” 2.8K OLED Touchscreen",
+          "battery": "70Wh — up to 10 hours"
+        },
+        "rating": 4.7,
+        "performance_summary": "Exceptional display for creative work, fast performance for everyday tasks and multitasking. Not meant for heavy gaming.",
+        "battery_life": "8-9 hours on balanced use. 6 hours with heavy video editing.",
+        "display_quality": "2.8K OLED with rich contrast and 100% DCI-P3 — top-tier visuals.",
+        "pros": [
+          "Brilliant OLED display",
+          "Lightweight, premium design",
+          "Long battery life",
+          "Fast SSD and RAM"
+        ],
+        "cons": ["No dedicated GPU", "Can heat up under video editing load"],
+        "final_verdict": "Ideal for digital nomads, creators and productivity-focused users who prioritize display quality and portability.",
+        "affiliate_link": "https://www.amazon.com/dp/example-link2"
+      },
+      {
+        "id": "acer-nitro-5-2023",
+        "name": "Acer Nitro 5 (2023)",
+        "image": "https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg",
+        "specs": {
+          "processor": "Intel Core i5-12500H",
+          "ram": "16GB DDR4",
+          "storage": "512GB NVMe SSD",
+          "graphics": "NVIDIA RTX 3050 (4GB)",
+          "display": "15.6” FHD 144Hz IPS",
+          "battery": "57.5Wh — up to 6 hours"
+        },
+        "rating": 4.3,
+        "performance_summary": "Great entry-level gaming laptop that also handles content creation and multitasking without lag.",
+        "battery_life": "4-5 hours on casual use, 2-3 hours gaming.",
+        "display_quality": "FHD 144Hz IPS display, decent color accuracy (72% NTSC).",
+        "pros": [
+          "Affordable RTX gaming laptop",
+          "Decent build for the price",
+          "Smooth 144Hz display"
+        ],
+        "cons": ["Below average battery", "Bulky chassis", "Average speakers"],
+        "final_verdict": "A solid pick for entry-level gamers and creators on a tight budget.",
+        "affiliate_link": "https://www.amazon.com/dp/example-link3"
+      }
+    ],
+    "accessories": [
+      {
+        "id": "logitech-mx-master-3s",
+        "name": "Logitech MX Master 3S",
+        "type": "Mouse",
+        "image": "https://images.pexels.com/photos/399161/pexels-photo-399161.jpeg",
+        "price": "₵850",
+        "description": "One of the best productivity mice with ultra-precise scrolling, multiple device connection and long battery life.",
+        "affiliate_link": "https://www.amazon.com/dp/accessory-link1"
+      },
+      {
+        "id": "anker-usb-c-hub",
+        "name": "Anker 7-in-1 USB-C Hub",
+        "type": "USB Hub",
+        "image": "https://images.pexels.com/photos/163097/twitter-social-media-communication-internet-network-163097.jpeg",
+        "price": "₵400",
+        "description": "Expand your laptop's connectivity with HDMI, SD card, and multiple USB ports.",
+        "affiliate_link": "https://www.amazon.com/dp/accessory-link2"
+      },
+      {
+        "id": "jbl-quantum-200",
+        "name": "JBL Quantum 200 Headset",
+        "type": "Headset",
+        "image": "https://images.pexels.com/photos/577769/pexels-photo-577769.jpeg",
+        "price": "₵650",
+        "description": "Comfortable wired headset with powerful sound for gaming, calls, and video editing.",
+        "affiliate_link": "https://www.amazon.com/dp/accessory-link3"
+      }
+    ],
+    "newsletter_cta": {
+      "title": "📩 Stay Ahead with Our Laptop & Tech Picks!",
+      "description": "Join our newsletter to receive exclusive laptop deals, expert reviews, and productivity tips directly in your inbox every week.",
+      "image": "https://images.pexels.com/photos/3184295/pexels-photo-3184295.jpeg",
+      "form_placeholder": "Enter your email address",
+      "subscribe_button_text": "Subscribe Now"
+    }
+  }
+}
