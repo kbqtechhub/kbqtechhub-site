@@ -5,6 +5,7 @@ import { Exo_2 } from 'next/font/google'
 import Footer from '@/components/shared/Footer';
 import SmoothScrollWrapper from "@/components/shared/SmoothScrollWrapper";
 import FloatButton from '@/components/shared/FloatButton';
+import LenisProvider from "@/components/shared/LenisProvider";
 
 const exo_2 = Exo_2({
   subsets: ['latin'],
@@ -24,14 +25,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${exo_2.className} antialiased`}>
-        <Header />
-        <SmoothScrollWrapper>
-          <main className='min-h-screen max-w-7xl mx-auto px-4 pt-4'>
-            {children}
-          </main>
-          <FloatButton />
-          <Footer />
-        </SmoothScrollWrapper>
+        <LenisProvider>
+          <Header />
+          <SmoothScrollWrapper>
+            <main className='min-h-screen max-w-7xl mx-auto px-4 pt-4'>
+              {children}
+            </main>
+            <FloatButton />
+            <Footer />
+          </SmoothScrollWrapper>
+        </LenisProvider>
       </body>
     </html>
   );

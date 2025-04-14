@@ -1,8 +1,8 @@
 "use client";
 
 import { ReactLenis } from 'lenis/react';
-import { motion } from 'motion/react'
-import React, { PropsWithChildren } from 'react'
+import { motion } from 'motion/react';
+import React, { PropsWithChildren } from 'react';
 
 interface SmoothScrollWrapperProps extends PropsWithChildren {
     className?: string
@@ -10,23 +10,21 @@ interface SmoothScrollWrapperProps extends PropsWithChildren {
 
 interface LenisOptions {
     lerp: number;
-    smoothWheel: boolean;
     wheelMultiplier: number;
     touchMultiplier: number;
     easing: (t: number) => number;
     smooth: boolean;
+    smoothTouch: boolean;
 }
 
 export default function SmoothScrollWrapper({ children, className }: SmoothScrollWrapperProps) {
-
-
     const lenisOptions: LenisOptions = {
         lerp: 0.08,
-        smoothWheel: true,
         wheelMultiplier: 0.8,
         touchMultiplier: 1.5,
         easing: (t: number) => 1 - Math.pow(1 - t, 4),
         smooth: true,
+        smoothTouch: true,
     }
 
     return (

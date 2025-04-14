@@ -75,6 +75,32 @@
   }
 }
 
+/* LENIS SMOOTH SCROLLING STYLES */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Prevent scrollbar jumping during Lenis animations */
+html {
+  overflow-y: scroll;
+  scroll-behavior: auto !important;
+}
 /* Scrollbar styles */
 ::-webkit-scrollbar {
   width: 10px;
@@ -107,6 +133,8 @@ body {
   color: var(--color-yelly);
     background: var(--color-soft-black);
   min-height: 100vh;
+  /* Prevent Safari's elastic scrolling */
+    overscroll-behavior: none;
 }
 
 @layer base {

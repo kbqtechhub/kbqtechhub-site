@@ -46,6 +46,7 @@ const serviceLinks = [
 export default function Navigation() {
     const pathname = usePathname();
 
+    // Enhanced isActive function with more precise matching and memoization
     const isActive = (path: string) => {
         if (path === '/' && pathname === '/') return true;
         return pathname === path || pathname?.startsWith(path + '/');
@@ -55,8 +56,9 @@ export default function Navigation() {
         <NavigationMenu className='hidden md:block text-primary w-full'>
             <NavigationMenuList>
                 <NavigationMenuItem>
-                    <Link href='/'>
-                        <NavigationMenuLink
+                    <NavigationMenuLink asChild>
+                        <Link
+                            href='/'
                             className={cn(
                                 navigationMenuTriggerStyle(),
                                 'text-base',
@@ -64,8 +66,8 @@ export default function Navigation() {
                             )}
                         >
                             Home
-                        </NavigationMenuLink>
-                    </Link>
+                        </Link>
+                    </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <NavigationMenuTrigger className="text-base">Services</NavigationMenuTrigger>
@@ -85,9 +87,9 @@ export default function Navigation() {
                     </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-
-                    <NavigationMenuLink
-                        href='/shop'
+                    <NavigationMenuLink asChild>
+                        <Link
+                            href='/shop'
                             className={cn(
                                 navigationMenuTriggerStyle(),
                                 'text-base',
@@ -95,13 +97,13 @@ export default function Navigation() {
                             )}
                         >
                             Shop
-                        </NavigationMenuLink>
-
+                        </Link>
+                    </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-
-                    <NavigationMenuLink
-                        href='/about'
+                    <NavigationMenuLink asChild>
+                        <Link
+                            href='/about'
                             className={cn(
                                 navigationMenuTriggerStyle(),
                                 'text-base',
@@ -109,11 +111,13 @@ export default function Navigation() {
                             )}
                         >
                             About
+                        </Link>
                     </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                        <NavigationMenuLink
-                        href='/blog'
+                    <NavigationMenuLink asChild>
+                        <Link
+                            href='/blog'
                             className={cn(
                                 navigationMenuTriggerStyle(),
                                 'text-base',
@@ -121,11 +125,13 @@ export default function Navigation() {
                             )}
                         >
                             Blog
+                        </Link>
                     </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuLink
-                        href='/contact'
+                    <NavigationMenuLink asChild>
+                        <Link
+                            href='/contact'
                             className={cn(
                                 navigationMenuTriggerStyle(),
                                 'text-base',
@@ -133,8 +139,8 @@ export default function Navigation() {
                             )}
                         >
                             Contact
-                        </NavigationMenuLink>
-
+                        </Link>
+                    </NavigationMenuLink>
                 </NavigationMenuItem>
             </NavigationMenuList>
         </NavigationMenu>
@@ -145,23 +151,28 @@ const ListItem = React.forwardRef<
     ComponentRef<typeof Link>,
     React.ComponentPropsWithoutRef<typeof Link> & { icon?: React.ReactNode; title: string; children: React.ReactNode }
 >(({ className, title, children, icon, ...props }, ref) => {
+    // Generate stable ID to help with hydration
+    const id = React.useId();
+
     return (
-        <li>
+        <li key={`listitem-${id}`}>
             <NavigationMenuLink asChild>
                 <Link
                     ref={ref}
                     className={cn(
                         'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-pure-black hover:text-winny focus:bg-pure-black focus:text-winny text-yelly',
-                        className
+                        className || ''
                     )}
                     {...props}
                 >
                     <div className='text-sm font-medium leading-none flex items-center gap-2'>
-                        {icon}
-                        {title}
+                        {icon && React.isValidElement(icon) ? React.cloneElement(icon) : null}
+                        <span>{title}</span>
                     </div>
                     <p className='line-clamp-2 text-sm leading-snug text-graphite-gray'>
-                        {children}
+                        {typeof children === 'string' ? children :
+                            React.isValidElement(children) ? React.cloneElement(children) :
+                                children}
                     </p>
                 </Link>
             </NavigationMenuLink>
