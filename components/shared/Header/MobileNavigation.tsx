@@ -35,16 +35,14 @@ export default function MobileNavigation() {
             clipPath: 'circle(0% at 100% 0)',
             opacity: 0,
             transition: {
-                duration: 0.3,
-                ease: 'easeInOut'
+                duration: 0.3
             }
         },
         open: {
             clipPath: 'circle(150% at 100% 0)',
             opacity: 1,
             transition: {
-                duration: 0.5,
-                ease: 'easeInOut'
+                duration: 0.5
             }
         }
     };
@@ -59,16 +57,14 @@ export default function MobileNavigation() {
             height: 0,
             opacity: 0,
             transition: {
-                duration: 0.3,
-                ease: 'easeInOut'
+                duration: 0.3
             }
         },
         open: {
             height: 'auto',
             opacity: 1,
             transition: {
-                duration: 0.3,
-                ease: 'easeInOut'
+                duration: 0.3
             }
         }
     };
