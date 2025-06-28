@@ -21,7 +21,7 @@ const dirname = path.dirname(filename)
 export default buildConfig({
   admin: {
     livePreview: {
-      url: 'http://localhost:3000',
+      url: process.env.SERVER_URL,
       collections: ['pages'],
     },
   },
