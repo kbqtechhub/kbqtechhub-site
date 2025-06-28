@@ -42,7 +42,7 @@ export default function MobileNavigation() {
             clipPath: 'circle(150% at 100% 0)',
             opacity: 1,
             transition: {
-                duration: 0.5
+                duration: 0.5,
             }
         }
     };
