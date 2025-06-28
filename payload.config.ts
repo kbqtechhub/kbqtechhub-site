@@ -27,7 +27,7 @@ export default buildConfig({
   },
   collections: [Users, Media, Blog, Categories, Store, Roles, GadgetCategories, GadgetTags],
   cors: '*',
-  serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
+  serverURL: process.env.SERVER_URL,
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
