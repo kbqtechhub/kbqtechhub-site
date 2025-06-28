@@ -24,9 +24,10 @@ export default buildConfig({
       url: process.env.SERVER_URL,
       collections: ['pages'],
     },
+    user: 'users'
   },
   collections: [Users, Media, Blog, Categories, Store, Roles, GadgetCategories, GadgetTags],
-  cors: '*',
+  debug: process.env.NODE_ENV === 'development',
   serverURL: process.env.SERVER_URL,
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
@@ -37,6 +38,7 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',
   }),
+  cors: '*',
   sharp,
   plugins: [
     s3Storage({
@@ -55,4 +57,9 @@ export default buildConfig({
       },
     }),
   ],
+  upload: {
+    limits: {
+      fileSize: 100 * 1024 * 1024, // 100 MB
+    }
+  }
 })
