@@ -1,43 +1,54 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Textarea } from '@/components/ui/textarea'
-import { Label } from '@/components/ui/label'
-import { X, Upload, Plus, Trash2 } from 'lucide-react'
+import { Plus, Trash2, Upload, X } from 'lucide-react';
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import { Textarea } from '@/components/ui/textarea';
 
 interface CourseFormData {
-  title: string
-  slug: string
-  description: string
-  content: string
-  level: 'beginner' | 'intermediate' | 'advanced'
-  price: number
-  duration: string
-  status: 'draft' | 'published' | 'archived'
-  featured: boolean
-  category: string
-  instructor: string
-  thumbnail?: File
+  title: string;
+  slug: string;
+  description: string;
+  content: string;
+  level: 'beginner' | 'intermediate' | 'advanced';
+  price: number;
+  duration: string;
+  status: 'draft' | 'published' | 'archived';
+  featured: boolean;
+  category: string;
+  instructor: string;
+  thumbnail?: File;
   courseFiles: Array<{
-    file?: File
-    title: string
-    description: string
-    order: number
-  }>
+    file?: File;
+    title: string;
+    description: string;
+    order: number;
+  }>;
 }
 
 interface CourseFormProps {
-  course?: CourseFormData
-  onSave: (data: CourseFormData) => void
-  onCancel: () => void
-  isEditing?: boolean
+  course?: CourseFormData;
+  onSave: (data: CourseFormData) => void;
+  onCancel: () => void;
+  isEditing?: boolean;
 }
 
-export default function CourseForm({ course, onSave, onCancel, isEditing = false }: CourseFormProps) {
+export default function CourseForm({
+  course,
+  onSave,
+  onCancel,
+  isEditing = false,
+}: CourseFormProps) {
   const [formData, setFormData] = useState<CourseFormData>({
     title: course?.title || '',
     slug: course?.slug || '',
@@ -50,82 +61,85 @@ export default function CourseForm({ course, onSave, onCancel, isEditing = false
     featured: course?.featured || false,
     category: course?.category || '',
     instructor: course?.instructor || '',
-    courseFiles: course?.courseFiles || []
-  })
+    courseFiles: course?.courseFiles || [],
+  });
 
-  const [errors, setErrors] = useState<Record<string, string>>({})
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   const validateForm = () => {
-    const newErrors: Record<string, string> = {}
+    const newErrors: Record<string, string> = {};
 
     if (!formData.title.trim()) {
-      newErrors.title = 'Title is required'
+      newErrors.title = 'Title is required';
     }
 
     if (!formData.description.trim()) {
-      newErrors.description = 'Description is required'
+      newErrors.description = 'Description is required';
     }
 
     if (!formData.category) {
-      newErrors.category = 'Category is required'
+      newErrors.category = 'Category is required';
     }
 
     if (!formData.instructor) {
-      newErrors.instructor = 'Instructor is required'
+      newErrors.instructor = 'Instructor is required';
     }
 
     if (formData.price < 0) {
-      newErrors.price = 'Price must be non-negative'
+      newErrors.price = 'Price must be non-negative';
     }
 
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     if (validateForm()) {
-      onSave(formData)
+      onSave(formData);
     }
-  }
+  };
 
   const handleInputChange = (field: keyof CourseFormData, value: any) => {
-    setFormData(prev => ({ ...prev, [field]: value }))
+    setFormData((prev) => ({ ...prev, [field]: value }));
     if (errors[field]) {
-      setErrors(prev => ({ ...prev, [field]: '' }))
+      setErrors((prev) => ({ ...prev, [field]: '' }));
     }
-  }
+  };
 
   const addCourseFile = () => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      courseFiles: [...prev.courseFiles, { title: '', description: '', order: prev.courseFiles.length }]
-    }))
-  }
+      courseFiles: [
+        ...prev.courseFiles,
+        { title: '', description: '', order: prev.courseFiles.length },
+      ],
+    }));
+  };
 
   const removeCourseFile = (index: number) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      courseFiles: prev.courseFiles.filter((_, i) => i !== index)
-    }))
-  }
+      courseFiles: prev.courseFiles.filter((_, i) => i !== index),
+    }));
+  };
 
   const updateCourseFile = (index: number, field: string, value: any) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      courseFiles: prev.courseFiles.map((file, i) => 
+      courseFiles: prev.courseFiles.map((file, i) =>
         i === index ? { ...file, [field]: value } : file
-      )
-    }))
-  }
+      ),
+    }));
+  };
 
   const handleFileUpload = (field: 'thumbnail' | 'courseFiles', file: File, index?: number) => {
     if (field === 'thumbnail') {
-      setFormData(prev => ({ ...prev, thumbnail: file }))
+      setFormData((prev) => ({ ...prev, thumbnail: file }));
     } else if (field === 'courseFiles' && index !== undefined) {
-      updateCourseFile(index, 'file', file)
+      updateCourseFile(index, 'file', file);
     }
-  }
+  };
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
@@ -180,7 +194,9 @@ export default function CourseForm({ course, onSave, onCancel, isEditing = false
                 rows={3}
                 className={errors.description ? 'border-red-500' : ''}
               />
-              {errors.description && <p className="text-red-500 text-sm mt-1">{errors.description}</p>}
+              {errors.description && (
+                <p className="text-red-500 text-sm mt-1">{errors.description}</p>
+              )}
             </div>
 
             <div>
@@ -198,7 +214,10 @@ export default function CourseForm({ course, onSave, onCancel, isEditing = false
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
                 <Label htmlFor="level">Level *</Label>
-                <Select value={formData.level} onValueChange={(value) => handleInputChange('level', value)}>
+                <Select
+                  value={formData.level}
+                  onValueChange={(value) => handleInputChange('level', value)}
+                >
                   <SelectTrigger>
                     <SelectValue placeholder="Select level" />
                   </SelectTrigger>
@@ -237,7 +256,10 @@ export default function CourseForm({ course, onSave, onCancel, isEditing = false
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <Label htmlFor="category">Category *</Label>
-                <Select value={formData.category} onValueChange={(value) => handleInputChange('category', value)}>
+                <Select
+                  value={formData.category}
+                  onValueChange={(value) => handleInputChange('category', value)}
+                >
                   <SelectTrigger className={errors.category ? 'border-red-500' : ''}>
                     <SelectValue placeholder="Select category" />
                   </SelectTrigger>
@@ -254,7 +276,10 @@ export default function CourseForm({ course, onSave, onCancel, isEditing = false
 
               <div>
                 <Label htmlFor="instructor">Instructor *</Label>
-                <Select value={formData.instructor} onValueChange={(value) => handleInputChange('instructor', value)}>
+                <Select
+                  value={formData.instructor}
+                  onValueChange={(value) => handleInputChange('instructor', value)}
+                >
                   <SelectTrigger className={errors.instructor ? 'border-red-500' : ''}>
                     <SelectValue placeholder="Select instructor" />
                   </SelectTrigger>
@@ -264,14 +289,19 @@ export default function CourseForm({ course, onSave, onCancel, isEditing = false
                     <SelectItem value="mike-johnson">Mike Johnson</SelectItem>
                   </SelectContent>
                 </Select>
-                {errors.instructor && <p className="text-red-500 text-sm mt-1">{errors.instructor}</p>}
+                {errors.instructor && (
+                  <p className="text-red-500 text-sm mt-1">{errors.instructor}</p>
+                )}
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <Label htmlFor="status">Status</Label>
-                <Select value={formData.status} onValueChange={(value) => handleInputChange('status', value)}>
+                <Select
+                  value={formData.status}
+                  onValueChange={(value) => handleInputChange('status', value)}
+                >
                   <SelectTrigger>
                     <SelectValue />
                   </SelectTrigger>
@@ -305,12 +335,15 @@ export default function CourseForm({ course, onSave, onCancel, isEditing = false
                   id="thumbnail"
                   accept="image/*"
                   onChange={(e) => {
-                    const file = e.target.files?.[0]
-                    if (file) handleFileUpload('thumbnail', file)
+                    const file = e.target.files?.[0];
+                    if (file) handleFileUpload('thumbnail', file);
                   }}
                   className="hidden"
                 />
-                <label htmlFor="thumbnail" className="cursor-pointer text-blue-600 hover:text-blue-800">
+                <label
+                  htmlFor="thumbnail"
+                  className="cursor-pointer text-blue-600 hover:text-blue-800"
+                >
                   {formData.thumbnail ? formData.thumbnail.name : 'Click to upload thumbnail'}
                 </label>
               </div>
@@ -349,13 +382,16 @@ export default function CourseForm({ course, onSave, onCancel, isEditing = false
                             type="file"
                             accept=".pdf,.doc,.docx,.mp4,.mov,.avi"
                             onChange={(e) => {
-                              const file = e.target.files?.[0]
-                              if (file) handleFileUpload('courseFiles', file, index)
+                              const file = e.target.files?.[0];
+                              if (file) handleFileUpload('courseFiles', file, index);
                             }}
                             className="hidden"
                             id={`file-${index}`}
                           />
-                          <label htmlFor={`file-${index}`} className="cursor-pointer text-blue-600 hover:text-blue-800">
+                          <label
+                            htmlFor={`file-${index}`}
+                            className="cursor-pointer text-blue-600 hover:text-blue-800"
+                          >
                             {file.file ? file.file.name : 'Click to upload file'}
                           </label>
                         </div>
@@ -390,13 +426,11 @@ export default function CourseForm({ course, onSave, onCancel, isEditing = false
               <Button type="button" variant="outline" onClick={onCancel}>
                 Cancel
               </Button>
-              <Button type="submit">
-                {isEditing ? 'Update Course' : 'Create Course'}
-              </Button>
+              <Button type="submit">{isEditing ? 'Update Course' : 'Create Course'}</Button>
             </div>
           </form>
         </CardContent>
       </Card>
     </div>
-  )
-} 
+  );
+}

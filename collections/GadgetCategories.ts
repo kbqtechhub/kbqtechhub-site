@@ -1,4 +1,4 @@
-import type { CollectionConfig } from 'payload'
+import type { CollectionConfig } from 'payload';
 
 const GadgetCategories: CollectionConfig = {
   slug: 'gadgetCategories',
@@ -23,7 +23,7 @@ const GadgetCategories: CollectionConfig = {
       name: 'image',
       type: 'upload',
       relationTo: 'media',
-    }
+    },
   ],
 };
 

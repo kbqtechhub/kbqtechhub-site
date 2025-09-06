@@ -1,5 +1,4 @@
-import React from 'react'
-import Link from 'next/link'
+import Link from 'next/link';
 
 export default function DigitalMarketingEnrollCta() {
   return (
@@ -8,8 +7,9 @@ export default function DigitalMarketingEnrollCta() {
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">Get Started Today</h2>
 
         <p className="text-lg mb-8 text-center max-w-2xl mx-auto">
-          Ready to take your digital marketing to the next level? Whether you're looking to build brand awareness,
-          drive traffic, or increase sales, we've got the skills and tools to help you succeed.
+          Ready to take your digital marketing to the next level? Whether you're looking to build
+          brand awareness, drive traffic, or increase sales, we've got the skills and tools to help
+          you succeed.
         </p>
 
         <div className="flex justify-center">
@@ -23,5 +23,5 @@ export default function DigitalMarketingEnrollCta() {
         </div>
       </div>
     </div>
-  )
+  );
 }

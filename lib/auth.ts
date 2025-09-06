@@ -1,19 +1,19 @@
-import { betterAuth } from "better-auth";
-import { mongodbAdapter } from "better-auth/adapters/mongodb";
-import { MongoClient, Db } from "mongodb";
+import { betterAuth } from 'better-auth';
+import { mongodbAdapter } from 'better-auth/adapters/mongodb';
+import { type Db, MongoClient } from 'mongodb';
 
 // Create MongoDB client and database
 const client = new MongoClient(process.env.DATABASE_URI as string);
-const db: Db = client.db("kbqtechhub");
+const db: Db = client.db('kbqtechhub');
 
 export const auth = betterAuth({
   adapter: mongodbAdapter(db as any),
   session: {
-    modelName: "session",
+    modelName: 'session',
   },
   pages: {
-    signIn: "/auth/signin",
-    signUp: "/auth/signup",
+    signIn: '/auth/signin',
+    signUp: '/auth/signup',
   },
   callbacks: {
     session: ({ session, token }: { session: any; token: any }) => {
@@ -33,13 +33,13 @@ export const auth = betterAuth({
   },
   providers: [
     {
-      id: "credentials",
-      type: "credentials",
+      id: 'credentials',
+      type: 'credentials',
       credentials: {
-        email: { label: "Email", type: "email" },
-        password: { label: "Password", type: "password" },
+        email: { label: 'Email', type: 'email' },
+        password: { label: 'Password', type: 'password' },
       },
-      async authorize(credentials: any) {
+      async authorize(_credentials: any) {
         // This will be implemented to work with Payload CMS users
         // For now, we'll use a placeholder
         return null;
@@ -48,4 +48,4 @@ export const auth = betterAuth({
   ],
 });
 
-export type AuthSession = typeof auth.$Infer.Session; 
+export type AuthSession = typeof auth.$Infer.Session;

@@ -1,36 +1,36 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Lock, User } from 'lucide-react'
+import { Lock } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 
 export default function AdminLoginPage() {
-  const router = useRouter()
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState('')
+  const router = useRouter();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setLoading(true)
-    setError('')
+    e.preventDefault();
+    setLoading(true);
+    setError('');
 
     // Simple authentication - in real app, validate against database
     if (email === 'admin@example.com' && password === 'admin123') {
       // Set a simple session cookie
-      document.cookie = 'admin-session=true; path=/; max-age=86400'
-      router.push('/admin')
+      document.cookie = 'admin-session=true; path=/; max-age=86400';
+      router.push('/admin');
     } else {
-      setError('Invalid credentials')
+      setError('Invalid credentials');
     }
 
-    setLoading(false)
-  }
+    setLoading(false);
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -50,9 +50,7 @@ export default function AdminLoginPage() {
         <Card>
           <CardHeader>
             <CardTitle>Sign In</CardTitle>
-            <CardDescription>
-              Enter your credentials to access the admin panel
-            </CardDescription>
+            <CardDescription>Enter your credentials to access the admin panel</CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -80,11 +78,7 @@ export default function AdminLoginPage() {
                 />
               </div>
 
-              {error && (
-                <div className="text-red-600 text-sm">
-                  {error}
-                </div>
-              )}
+              {error && <div className="text-red-600 text-sm">{error}</div>}
 
               <Button type="submit" className="w-full" disabled={loading}>
                 {loading ? 'Signing in...' : 'Sign in'}
@@ -100,5 +94,5 @@ export default function AdminLoginPage() {
         </Card>
       </div>
     </div>
-  )
-} 
+  );
+}

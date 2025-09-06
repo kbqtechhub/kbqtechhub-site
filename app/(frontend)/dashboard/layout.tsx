@@ -1,20 +1,20 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { Button } from '@/components/ui/button'
-import { 
-  BookOpen, 
-  Users, 
-  FileText, 
-  Settings, 
-  BarChart3, 
-  Menu, 
-  X,
+import {
+  BarChart3,
+  BookOpen,
+  FileText,
   LogOut,
-  User
-} from 'lucide-react'
+  Menu,
+  Settings,
+  User,
+  Users,
+  X,
+} from 'lucide-react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
 
 const navigation = [
   { name: 'Dashboard', href: '/admin', icon: BarChart3 },
@@ -22,21 +22,20 @@ const navigation = [
   { name: 'Users', href: '/admin/users', icon: Users },
   { name: 'Blog', href: '/admin/blog', icon: FileText },
   { name: 'Settings', href: '/admin/settings', icon: Settings },
-]
+];
 
-export default function AdminLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  const [sidebarOpen, setSidebarOpen] = useState(false)
-  const pathname = usePathname()
+export default function AdminLayout({ children }: { children: React.ReactNode }) {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Mobile sidebar */}
       <div className={`fixed inset-0 z-50 lg:hidden ${sidebarOpen ? 'block' : 'hidden'}`}>
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-75" onClick={() => setSidebarOpen(false)} />
+        <div
+          className="fixed inset-0 bg-gray-600 bg-opacity-75"
+          onClick={() => setSidebarOpen(false)}
+        />
         <div className="fixed inset-y-0 left-0 flex w-64 flex-col bg-white">
           <div className="flex h-16 items-center justify-between px-4">
             <h1 className="text-xl font-bold text-gray-900">Admin Panel</h1>
@@ -46,7 +45,7 @@ export default function AdminLayout({
           </div>
           <nav className="flex-1 space-y-1 px-2 py-4">
             {navigation.map((item) => {
-              const isActive = pathname === item.href
+              const isActive = pathname === item.href;
               return (
                 <Link
                   key={item.name}
@@ -61,7 +60,7 @@ export default function AdminLayout({
                   <item.icon className="mr-3 h-5 w-5" />
                   {item.name}
                 </Link>
-              )
+              );
             })}
           </nav>
           <div className="border-t border-gray-200 p-4">
@@ -90,7 +89,7 @@ export default function AdminLayout({
           </div>
           <nav className="flex-1 space-y-1 px-2 py-4">
             {navigation.map((item) => {
-              const isActive = pathname === item.href
+              const isActive = pathname === item.href;
               return (
                 <Link
                   key={item.name}
@@ -104,7 +103,7 @@ export default function AdminLayout({
                   <item.icon className="mr-3 h-5 w-5" />
                   {item.name}
                 </Link>
-              )
+              );
             })}
           </nav>
           <div className="border-t border-gray-200 p-4">
@@ -151,11 +150,9 @@ export default function AdminLayout({
 
         {/* Page content */}
         <main className="py-6">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            {children}
-          </div>
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">{children}</div>
         </main>
       </div>
     </div>
-  )
-} 
+  );
+}

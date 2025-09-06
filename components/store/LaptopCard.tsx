@@ -1,10 +1,10 @@
-import React from 'react';
-import Image from 'next/image';
 import { motion } from 'motion/react';
-import { Button } from '../ui/button';
+import Image from 'next/image';
 import Link from 'next/link';
-import StarRating from './StarRating';
+import type React from 'react';
+import { Button } from '../ui/button';
 import { Card, CardContent, CardFooter, CardHeader } from '../ui/card';
+import StarRating from './StarRating';
 
 interface LaptopReviewProps {
   review: {
@@ -32,11 +32,7 @@ interface LaptopReviewProps {
 
 const LaptopCard: React.FC<LaptopReviewProps> = ({ review }) => {
   return (
-    <motion.div
-      whileHover={{ y: -5 }}
-      transition={{ duration: 0.3 }}
-      className="h-full"
-    >
+    <motion.div whileHover={{ y: -5 }} transition={{ duration: 0.3 }} className="h-full">
       <Card className="h-full overflow-hidden border border-[var(--color-graphite-gray)] rounded-lg shadow-lg flex flex-col">
         <CardHeader className="p-0">
           <div className="relative h-48 w-full overflow-hidden">
@@ -51,11 +47,11 @@ const LaptopCard: React.FC<LaptopReviewProps> = ({ review }) => {
         </CardHeader>
         <CardContent className="flex-grow p-5">
           <h3 className="text-xl font-bold mb-2">{review.name}</h3>
-          
+
           <div className="mb-3">
             <StarRating rating={review.rating} />
           </div>
-          
+
           {/* Basic specs visible by default */}
           <div className="grid grid-cols-2 gap-2 text-sm mb-4">
             <div>
@@ -71,12 +67,12 @@ const LaptopCard: React.FC<LaptopReviewProps> = ({ review }) => {
               <span className="font-medium">Graphics:</span> {review.specs.graphics}
             </div>
           </div>
-          
+
           {/* Link to the detail page */}
           <Link href={`/shop/laptop/${review.id}`} passHref>
-            <Button 
-              variant="outline" 
-              size="sm" 
+            <Button
+              variant="outline"
+              size="sm"
               className="mb-3 w-full border-color-yelly text-color-yelly hover:bg--color-light-yelly/10 hover:text-color-yelly"
             >
               View Full Details
@@ -84,7 +80,7 @@ const LaptopCard: React.FC<LaptopReviewProps> = ({ review }) => {
           </Link>
         </CardContent>
         <CardFooter className="p-5 pt-0">
-          <Button 
+          <Button
             className="w-full bg-[var(--color-winny)] text-[var(--color-white)] hover:bg-[var(--color-muted-wine)]"
             onClick={() => window.open(review.affiliate_link, '_blank')}
           >

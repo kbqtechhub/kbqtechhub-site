@@ -1,32 +1,31 @@
-'use client'
+'use client';
 
-import { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Plus, Upload, Edit, Trash2, Search } from 'lucide-react'
-import CourseForm from '@/components/CourseForm'
+import { Edit, Plus, Search, Trash2, Upload } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
 
 interface Course {
-  id: string
-  title: string
-  description: string
-  status: 'draft' | 'published' | 'archived'
-  level: 'beginner' | 'intermediate' | 'advanced'
-  price: number
-  instructor: string
-  thumbnail?: string
-  createdAt: string
+  id: string;
+  title: string;
+  description: string;
+  status: 'draft' | 'published' | 'archived';
+  level: 'beginner' | 'intermediate' | 'advanced';
+  price: number;
+  instructor: string;
+  thumbnail?: string;
+  createdAt: string;
 }
 
 export default function AdminCoursesPage() {
-  const router = useRouter()
-  const [courses, setCourses] = useState<Course[]>([])
-  const [loading, setLoading] = useState(true)
-  const [searchTerm, setSearchTerm] = useState('')
-  const [showCreateForm, setShowCreateForm] = useState(false)
-  const [editingCourse, setEditingCourse] = useState<Course | null>(null)
+  const _router = useRouter();
+  const [courses, setCourses] = useState<Course[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [_showCreateForm, setShowCreateForm] = useState(false);
+  const [editingCourse, setEditingCourse] = useState<Course | null>(null);
 
   // Mock data for demonstration
   useEffect(() => {
@@ -39,7 +38,7 @@ export default function AdminCoursesPage() {
         level: 'beginner',
         price: 99,
         instructor: 'John Doe',
-        createdAt: '2024-01-15'
+        createdAt: '2024-01-15',
       },
       {
         id: '2',
@@ -49,85 +48,86 @@ export default function AdminCoursesPage() {
         level: 'advanced',
         price: 149,
         instructor: 'Jane Smith',
-        createdAt: '2024-01-20'
-      }
-    ]
-    setCourses(mockCourses)
-    setLoading(false)
-  }, [])
+        createdAt: '2024-01-20',
+      },
+    ];
+    setCourses(mockCourses);
+    setLoading(false);
+  }, []);
 
-  const filteredCourses = courses.filter(course =>
-    course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    course.description.toLowerCase().includes(searchTerm.toLowerCase())
-  )
+  const filteredCourses = courses.filter(
+    (course) =>
+      course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      course.description.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const handleCreateCourse = () => {
-    setShowCreateForm(true)
-    setEditingCourse(null)
-  }
+    setShowCreateForm(true);
+    setEditingCourse(null);
+  };
 
   const handleEditCourse = (course: Course) => {
-    setEditingCourse(course)
-    setShowCreateForm(true)
-  }
+    setEditingCourse(course);
+    setShowCreateForm(true);
+  };
 
   const handleDeleteCourse = (courseId: string) => {
     if (confirm('Are you sure you want to delete this course?')) {
-      setCourses(courses.filter(course => course.id !== courseId))
+      setCourses(courses.filter((course) => course.id !== courseId));
     }
-  }
+  };
 
-  const handleSaveCourse = (courseData: any) => {
+  const _handleSaveCourse = (courseData: any) => {
     if (editingCourse) {
       // Update existing course
-      setCourses(courses.map(course =>
-        course.id === editingCourse.id
-          ? { ...course, ...courseData, id: course.id }
-          : course
-      ))
+      setCourses(
+        courses.map((course) =>
+          course.id === editingCourse.id ? { ...course, ...courseData, id: course.id } : course
+        )
+      );
     } else {
       // Create new course
       const newCourse = {
         ...courseData,
         id: Date.now().toString(),
-        createdAt: new Date().toISOString()
-      }
-      setCourses([...courses, newCourse])
+        createdAt: new Date().toISOString(),
+      };
+      setCourses([...courses, newCourse]);
     }
-    setShowCreateForm(false)
-    setEditingCourse(null)
-  }
+    setShowCreateForm(false);
+    setEditingCourse(null);
+  };
 
-  const handleCancelForm = () => {
-    setShowCreateForm(false)
-    setEditingCourse(null)
-  }
+  const _handleCancelForm = () => {
+    setShowCreateForm(false);
+    setEditingCourse(null);
+  };
 
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'published':
-        return 'bg-green-100 text-green-800'
+        return 'bg-green-100 text-green-800';
       case 'draft':
-        return 'bg-yellow-100 text-yellow-800'
+        return 'bg-yellow-100 text-yellow-800';
       case 'archived':
-        return 'bg-gray-100 text-gray-800'
+        return 'bg-gray-100 text-gray-800';
       default:
-        return 'bg-gray-100 text-gray-800'
+        return 'bg-gray-100 text-gray-800';
     }
-  }
+  };
 
   const getLevelColor = (level: string) => {
     switch (level) {
       case 'beginner':
-        return 'bg-blue-100 text-blue-800'
+        return 'bg-blue-100 text-blue-800';
       case 'intermediate':
-        return 'bg-orange-100 text-orange-800'
+        return 'bg-orange-100 text-orange-800';
       case 'advanced':
-        return 'bg-red-100 text-red-800'
+        return 'bg-red-100 text-red-800';
       default:
-        return 'bg-gray-100 text-gray-800'
+        return 'bg-gray-100 text-gray-800';
     }
-  }
+  };
 
   if (loading) {
     return (
@@ -143,7 +143,7 @@ export default function AdminCoursesPage() {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -186,18 +186,10 @@ export default function AdminCoursesPage() {
                   </CardDescription>
                 </div>
                 <div className="flex gap-2 ml-4">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => handleEditCourse(course)}
-                  >
+                  <Button variant="outline" size="sm" onClick={() => handleEditCourse(course)}>
                     <Edit className="w-4 h-4" />
                   </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => handleDeleteCourse(course.id)}
-                  >
+                  <Button variant="outline" size="sm" onClick={() => handleDeleteCourse(course.id)}>
                     <Trash2 className="w-4 h-4" />
                   </Button>
                 </div>
@@ -207,21 +199,23 @@ export default function AdminCoursesPage() {
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-600">Status:</span>
-                  <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(course.status)}`}>
+                  <span
+                    className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(course.status)}`}
+                  >
                     {course.status}
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-600">Level:</span>
-                  <span className={`px-2 py-1 rounded-full text-xs font-medium ${getLevelColor(course.level)}`}>
+                  <span
+                    className={`px-2 py-1 rounded-full text-xs font-medium ${getLevelColor(course.level)}`}
+                  >
                     {course.level}
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-600">Price:</span>
-                  <span className="font-medium">
-                    ${course.price}
-                  </span>
+                  <span className="font-medium">${course.price}</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-600">Instructor:</span>
@@ -256,5 +250,5 @@ export default function AdminCoursesPage() {
     //     isEditing={!!editingCourse}
     //   />
     // )}
-  )
+  );
 }

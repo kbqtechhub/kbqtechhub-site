@@ -1,4 +1,4 @@
-import type { CollectionConfig, CollectionSlug } from 'payload'
+import type { CollectionConfig, CollectionSlug } from 'payload';
 
 export const Courses: CollectionConfig = {
   slug: 'courses',
@@ -9,8 +9,12 @@ export const Courses: CollectionConfig = {
   },
   access: {
     read: () => true,
-    create: ({ req }) => (req.user as any)?.roles?.permissions?.canCreatePosts || (req.user as any)?.roles?.slug === 'admin',
-    update: ({ req }) => (req.user as any)?.roles?.permissions?.canManageAllPosts || (req.user as any)?.roles?.slug === 'admin',
+    create: ({ req }) =>
+      (req.user as any)?.roles?.permissions?.canCreatePosts ||
+      (req.user as any)?.roles?.slug === 'admin',
+    update: ({ req }) =>
+      (req.user as any)?.roles?.permissions?.canManageAllPosts ||
+      (req.user as any)?.roles?.slug === 'admin',
     delete: ({ req }) => (req.user as any)?.roles?.slug === 'admin',
   },
   fields: [
@@ -19,8 +23,8 @@ export const Courses: CollectionConfig = {
       type: 'text',
       required: true,
       admin: {
-        description: 'Course title'
-      }
+        description: 'Course title',
+      },
     },
     {
       name: 'slug',
@@ -28,23 +32,23 @@ export const Courses: CollectionConfig = {
       required: true,
       unique: true,
       admin: {
-        description: 'URL-friendly identifier for the course'
-      }
+        description: 'URL-friendly identifier for the course',
+      },
     },
     {
       name: 'description',
       type: 'textarea',
       required: true,
       admin: {
-        description: 'Brief description of the course'
-      }
+        description: 'Brief description of the course',
+      },
     },
     {
       name: 'content',
       type: 'richText',
       admin: {
-        description: 'Detailed course content and curriculum'
-      }
+        description: 'Detailed course content and curriculum',
+      },
     },
     {
       name: 'thumbnail',
@@ -52,8 +56,8 @@ export const Courses: CollectionConfig = {
       relationTo: 'media',
       required: true,
       admin: {
-        description: 'Course thumbnail image'
-      }
+        description: 'Course thumbnail image',
+      },
     },
     {
       name: 'courseFiles',
@@ -65,36 +69,36 @@ export const Courses: CollectionConfig = {
           relationTo: 'media',
           required: true,
           admin: {
-            description: 'Course material file (PDF, video, etc.)'
-          }
+            description: 'Course material file (PDF, video, etc.)',
+          },
         },
         {
           name: 'title',
           type: 'text',
           required: true,
           admin: {
-            description: 'File title/name'
-          }
+            description: 'File title/name',
+          },
         },
         {
           name: 'description',
           type: 'textarea',
           admin: {
-            description: 'File description'
-          }
+            description: 'File description',
+          },
         },
         {
           name: 'order',
           type: 'number',
           defaultValue: 0,
           admin: {
-            description: 'Display order of the file'
-          }
-        }
+            description: 'Display order of the file',
+          },
+        },
       ],
       admin: {
-        description: 'Course materials and resources'
-      }
+        description: 'Course materials and resources',
+      },
     },
     {
       name: 'category',
@@ -102,8 +106,8 @@ export const Courses: CollectionConfig = {
       relationTo: 'categories' as CollectionSlug,
       required: true,
       admin: {
-        description: 'Course category'
-      }
+        description: 'Course category',
+      },
     },
     {
       name: 'instructor',
@@ -111,15 +115,15 @@ export const Courses: CollectionConfig = {
       relationTo: 'users',
       required: true,
       admin: {
-        description: 'Course instructor'
-      }
+        description: 'Course instructor',
+      },
     },
     {
       name: 'duration',
       type: 'text',
       admin: {
-        description: 'Course duration (e.g., "8 hours", "4 weeks")'
-      }
+        description: 'Course duration (e.g., "8 hours", "4 weeks")',
+      },
     },
     {
       name: 'level',
@@ -127,19 +131,19 @@ export const Courses: CollectionConfig = {
       options: [
         { label: 'Beginner', value: 'beginner' },
         { label: 'Intermediate', value: 'intermediate' },
-        { label: 'Advanced', value: 'advanced' }
+        { label: 'Advanced', value: 'advanced' },
       ],
       required: true,
       admin: {
-        description: 'Course difficulty level'
-      }
+        description: 'Course difficulty level',
+      },
     },
     {
       name: 'price',
       type: 'number',
       admin: {
-        description: 'Course price (0 for free courses)'
-      }
+        description: 'Course price (0 for free courses)',
+      },
     },
     {
       name: 'status',
@@ -147,21 +151,21 @@ export const Courses: CollectionConfig = {
       options: [
         { label: 'Draft', value: 'draft' },
         { label: 'Published', value: 'published' },
-        { label: 'Archived', value: 'archived' }
+        { label: 'Archived', value: 'archived' },
       ],
       defaultValue: 'draft',
       required: true,
       admin: {
-        description: 'Course publication status'
-      }
+        description: 'Course publication status',
+      },
     },
     {
       name: 'featured',
       type: 'checkbox',
       defaultValue: false,
       admin: {
-        description: 'Mark as featured course'
-      }
+        description: 'Mark as featured course',
+      },
     },
     {
       name: 'tags',
@@ -169,8 +173,8 @@ export const Courses: CollectionConfig = {
       relationTo: 'gadgetTags' as CollectionSlug,
       hasMany: true,
       admin: {
-        description: 'Course tags for better organization'
-      }
+        description: 'Course tags for better organization',
+      },
     },
     {
       name: 'seo',
@@ -180,21 +184,21 @@ export const Courses: CollectionConfig = {
           name: 'metaTitle',
           type: 'text',
           admin: {
-            description: 'SEO meta title'
-          }
+            description: 'SEO meta title',
+          },
         },
         {
           name: 'metaDescription',
           type: 'textarea',
           admin: {
-            description: 'SEO meta description'
-          }
-        }
+            description: 'SEO meta description',
+          },
+        },
       ],
       admin: {
-        description: 'SEO settings'
-      }
-    }
+        description: 'SEO settings',
+      },
+    },
   ],
   hooks: {
     beforeChange: [
@@ -206,14 +210,14 @@ export const Courses: CollectionConfig = {
             .replace(/[^a-z0-9]+/g, '-')
             .replace(/(^-|-$)/g, '');
         }
-        
+
         // Set instructor to current user if not specified
         if (!data.instructor && req.user) {
           data.instructor = req.user.id;
         }
-        
+
         return data;
-      }
-    ]
-  }
-} 
+      },
+    ],
+  },
+};

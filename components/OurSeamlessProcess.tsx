@@ -1,10 +1,14 @@
-import Image from 'next/image'
-import React from 'react'
+import Image from 'next/image';
 
 export default function OurSeamlessProcess() {
-    return (
-        <section className='max-w-4xl mx-auto w-full'>
-            <Image src='/images/our-seamless-process.svg' width={1440} height={800} alt='Our Seamless Process' />
-        </section>
-    )
+  return (
+    <section className="max-w-4xl mx-auto w-full">
+      <Image
+        src="/images/our-seamless-process.svg"
+        width={1440}
+        height={800}
+        alt="Our Seamless Process"
+      />
+    </section>
+  );
 }

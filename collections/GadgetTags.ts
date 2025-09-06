@@ -1,4 +1,4 @@
-import type { CollectionConfig } from 'payload'
+import type { CollectionConfig } from 'payload';
 
 const GadgetTags: CollectionConfig = {
   slug: 'gadgetTags',
@@ -14,7 +14,7 @@ const GadgetTags: CollectionConfig = {
       name: 'name',
       type: 'text',
       required: true,
-    }
+    },
   ],
 };
 

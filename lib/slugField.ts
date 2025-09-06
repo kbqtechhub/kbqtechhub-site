@@ -1,4 +1,4 @@
-import { FieldHook } from 'payload'
+import type { FieldHook } from 'payload';
 
 /**
  * Formats a string into a URL-friendly slug
@@ -10,10 +10,10 @@ import { FieldHook } from 'payload'
  * @returns {string} The formatted slug
  */
 const format = (val: string): string =>
-    val
-        .replace(/ /g, '-')
-        .replace(/[^\w-/]+/g, '')
-        .toLowerCase()
+  val
+    .replace(/ /g, '-')
+    .replace(/[^\w-/]+/g, '')
+    .toLowerCase();
 
 /**
  * Creates a field hook for generating slugs in Payload CMS
@@ -24,16 +24,16 @@ const format = (val: string): string =>
  * @returns {FieldHook} A Payload field hook function
  */
 export const slugField =
-    (fallback: string): FieldHook =>
-        ({ value, originalDoc, data }) => {
-            if (typeof value === 'string') {
-                return format(value)
-            }
-            const fallbackData = data?.[fallback] || originalDoc?.[fallback]
+  (fallback: string): FieldHook =>
+  ({ value, originalDoc, data }) => {
+    if (typeof value === 'string') {
+      return format(value);
+    }
+    const fallbackData = data?.[fallback] || originalDoc?.[fallback];
 
-            if (fallbackData && typeof fallbackData === 'string') {
-                return format(fallbackData)
-            }
+    if (fallbackData && typeof fallbackData === 'string') {
+      return format(fallbackData);
+    }
 
-            return value
-        }
+    return value;
+  };

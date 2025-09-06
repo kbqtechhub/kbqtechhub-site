@@ -1,8 +1,8 @@
-import React from 'react';
-import Image from 'next/image';
 import { motion } from 'motion/react';
-import { Button } from '../ui/button';
+import Image from 'next/image';
 import Link from 'next/link';
+import type React from 'react';
+import { Button } from '../ui/button';
 import { Card, CardContent, CardFooter } from '../ui/card';
 
 interface AccessoryProps {
@@ -19,11 +19,7 @@ interface AccessoryProps {
 
 const AccessoryCard: React.FC<AccessoryProps> = ({ accessory }) => {
   return (
-    <motion.div
-      whileHover={{ y: -5 }}
-      transition={{ duration: 0.3 }}
-      className="h-full"
-    >
+    <motion.div whileHover={{ y: -5 }} transition={{ duration: 0.3 }} className="h-full">
       <Card className="h-full border border-[var(--color-graphite-gray)] rounded-lg shadow-md flex flex-col">
         <div className="relative h-40 w-full overflow-hidden rounded-t-lg">
           <Image
@@ -40,12 +36,14 @@ const AccessoryCard: React.FC<AccessoryProps> = ({ accessory }) => {
           </div>
           <h3 className="font-bold text-lg mb-1">{accessory.name}</h3>
           <p className="text-lg font-bold text-[var(--color-yelly)] mb-2">{accessory.price}</p>
-          <p className="text-sm text-[var(--color-graphite-gray)] line-clamp-2 mb-3">{accessory.description}</p>
-          
+          <p className="text-sm text-[var(--color-graphite-gray)] line-clamp-2 mb-3">
+            {accessory.description}
+          </p>
+
           {/* Link to detail page instead of Sheet */}
           <Link href={`/shop/accessory/${accessory.id}`} passHref>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="sm"
               className="w-full mb-2 border-[var(--color-yelly)] text-[var(--color-yelly)] hover:bg-[var(--color-light-yelly)]/10 hover:text-[var(--color-yelly)]"
             >
@@ -54,7 +52,7 @@ const AccessoryCard: React.FC<AccessoryProps> = ({ accessory }) => {
           </Link>
         </CardContent>
         <CardFooter className="p-4 pt-0">
-          <Button 
+          <Button
             className="w-full bg-[var(--color-winny)] text-[var(--color-white)] hover:bg-[var(--color-muted-wine)]"
             onClick={() => window.open(accessory.affiliate_link, '_blank')}
           >

@@ -1,4 +1,4 @@
-import type { CollectionConfig } from 'payload'
+import type { CollectionConfig } from 'payload';
 
 export const Media: CollectionConfig = {
   slug: 'media',
@@ -47,7 +47,7 @@ export const Media: CollectionConfig = {
       'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
       'application/json',
       'text/markdown',
-      'text/csv'
+      'text/csv',
     ],
   },
   fields: [
@@ -56,4 +56,4 @@ export const Media: CollectionConfig = {
       type: 'text',
     },
   ],
-}
+};

@@ -1,13 +1,9 @@
-import React from 'react'
+import type React from 'react';
 
 export default function ServicesLayout({
-    children,
+  children,
 }: Readonly<{
-    children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-    return (
-        <section>
-            {children}
-        </section>
-    )
+  return <section>{children}</section>;
 }

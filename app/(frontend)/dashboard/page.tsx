@@ -1,28 +1,27 @@
-'use client'
+'use client';
 
-import { useState, useEffect } from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { 
-  BookOpen, 
-  Users, 
-  FileText, 
-  TrendingUp, 
-  DollarSign,
-  Plus,
+import {
+  ArrowDownRight,
   ArrowUpRight,
-  ArrowDownRight
-} from 'lucide-react'
-import Link from 'next/link'
+  BookOpen,
+  DollarSign,
+  FileText,
+  Plus,
+  Users,
+} from 'lucide-react';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface DashboardStats {
-  totalCourses: number
-  totalUsers: number
-  totalRevenue: number
-  totalBlogPosts: number
-  coursesGrowth: number
-  revenueGrowth: number
-  usersGrowth: number
+  totalCourses: number;
+  totalUsers: number;
+  totalRevenue: number;
+  totalBlogPosts: number;
+  coursesGrowth: number;
+  revenueGrowth: number;
+  usersGrowth: number;
 }
 
 export default function AdminDashboard() {
@@ -33,8 +32,8 @@ export default function AdminDashboard() {
     totalBlogPosts: 0,
     coursesGrowth: 0,
     revenueGrowth: 0,
-    usersGrowth: 0
-  })
+    usersGrowth: 0,
+  });
 
   useEffect(() => {
     // Mock data - in real app, fetch from API
@@ -45,9 +44,9 @@ export default function AdminDashboard() {
       totalBlogPosts: 18,
       coursesGrowth: 12.5,
       revenueGrowth: 8.2,
-      usersGrowth: -2.1
-    })
-  }, [])
+      usersGrowth: -2.1,
+    });
+  }, []);
 
   const quickActions = [
     {
@@ -55,23 +54,23 @@ export default function AdminDashboard() {
       description: 'Add a new course to your platform',
       icon: BookOpen,
       href: '/admin/courses',
-      color: 'bg-blue-500'
+      color: 'bg-blue-500',
     },
     {
       title: 'Manage Users',
       description: 'View and manage user accounts',
       icon: Users,
       href: '/admin/users',
-      color: 'bg-green-500'
+      color: 'bg-green-500',
     },
     {
       title: 'Write Blog Post',
       description: 'Create new blog content',
       icon: FileText,
       href: '/admin/blog',
-      color: 'bg-purple-500'
-    }
-  ]
+      color: 'bg-purple-500',
+    },
+  ];
 
   const recentActivity = [
     {
@@ -80,7 +79,7 @@ export default function AdminDashboard() {
       title: 'Web Development Fundamentals',
       action: 'created',
       time: '2 hours ago',
-      user: 'John Doe'
+      user: 'John Doe',
     },
     {
       id: 2,
@@ -88,7 +87,7 @@ export default function AdminDashboard() {
       title: 'New user registration',
       action: 'registered',
       time: '4 hours ago',
-      user: 'jane.smith@example.com'
+      user: 'jane.smith@example.com',
     },
     {
       id: 3,
@@ -96,16 +95,18 @@ export default function AdminDashboard() {
       title: 'Getting Started with React',
       action: 'published',
       time: '1 day ago',
-      user: 'Mike Johnson'
-    }
-  ]
+      user: 'Mike Johnson',
+    },
+  ];
 
   return (
     <div className="space-y-6">
       {/* Header */}
       <div>
         <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-        <p className="text-gray-600 mt-2">Welcome back! Here's what's happening with your platform.</p>
+        <p className="text-gray-600 mt-2">
+          Welcome back! Here's what's happening with your platform.
+        </p>
       </div>
 
       {/* Stats Grid */}
@@ -167,9 +168,7 @@ export default function AdminDashboard() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{stats.totalBlogPosts}</div>
-            <div className="text-xs text-muted-foreground">
-              Published articles
-            </div>
+            <div className="text-xs text-muted-foreground">Published articles</div>
           </CardContent>
         </Card>
       </div>
@@ -218,9 +217,7 @@ export default function AdminDashboard() {
                     </div>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-gray-900 truncate">
-                      {activity.title}
-                    </p>
+                    <p className="text-sm font-medium text-gray-900 truncate">{activity.title}</p>
                     <p className="text-sm text-gray-500">
                       {activity.action} by {activity.user}
                     </p>
@@ -266,5 +263,5 @@ export default function AdminDashboard() {
         </Card>
       </div>
     </div>
-  )
-} 
+  );
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 
 interface StarRatingProps {
   rating: number;
@@ -6,11 +6,7 @@ interface StarRatingProps {
   size?: 'sm' | 'md' | 'lg';
 }
 
-const StarRating: React.FC<StarRatingProps> = ({
-  rating,
-  maxStars = 5,
-  size = 'md',
-}) => {
+const StarRating: React.FC<StarRatingProps> = ({ rating, maxStars = 5, size = 'md' }) => {
   const sizeClasses = {
     sm: 'text-sm',
     md: 'text-lg',
@@ -33,9 +29,7 @@ const StarRating: React.FC<StarRatingProps> = ({
 
       {/* Half star if needed */}
       {partialStar > 0 && (
-        <span className={`text-[var(--color-yelly)] ${sizeClasses[size]}`}>
-          &#9734;
-        </span>
+        <span className={`text-[var(--color-yelly)] ${sizeClasses[size]}`}>&#9734;</span>
       )}
 
       {/* Empty stars */}
@@ -44,7 +38,7 @@ const StarRating: React.FC<StarRatingProps> = ({
           &#9734;
         </span>
       ))}
-      
+
       {/* Display numeric rating */}
       <span className="ml-2 text-sm text-[var(--color-graphite-gray)]">({rating})</span>
     </p>
