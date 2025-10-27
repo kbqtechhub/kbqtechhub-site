@@ -1,98 +1,98 @@
-import { CollectionConfig } from 'payload';
+import type { CollectionConfig } from 'payload';
 
 const Pages: CollectionConfig = {
-    slug: 'pages',
-    admin: {
-        useAsTitle: 'title',
-        defaultColumns: ['title', 'slug', 'status', 'updatedAt'],
+  slug: 'pages',
+  admin: {
+    useAsTitle: 'title',
+    defaultColumns: ['title', 'slug', 'status', 'updatedAt'],
+  },
+  access: {
+    read: () => true,
+  },
+  fields: [
+    {
+      name: 'title',
+      type: 'text',
+      required: true,
     },
-    access: {
-        read: () => true,
+    {
+      name: 'content',
+      type: 'richText',
+      required: true,
     },
-    fields: [
+    {
+      name: 'slug',
+      type: 'text',
+      required: true,
+      unique: true,
+      admin: {
+        position: 'sidebar',
+      },
+    },
+    {
+      name: 'status',
+      type: 'select',
+      options: [
         {
-            name: 'title',
-            type: 'text',
-            required: true,
+          value: 'draft',
+          label: 'Draft',
         },
         {
-            name: 'content',
-            type: 'richText',
-            required: true,
+          value: 'published',
+          label: 'Published',
+        },
+      ],
+      defaultValue: 'draft',
+      admin: {
+        position: 'sidebar',
+      },
+    },
+    {
+      name: 'publishedDate',
+      type: 'date',
+      admin: {
+        position: 'sidebar',
+      },
+    },
+    {
+      name: 'featuredImage',
+      type: 'upload',
+      relationTo: 'media',
+      required: false,
+    },
+    {
+      name: 'author',
+      type: 'relationship',
+      relationTo: 'users',
+      hasMany: false,
+      admin: {
+        position: 'sidebar',
+      },
+    },
+    {
+      name: 'seo',
+      type: 'group',
+      fields: [
+        {
+          name: 'description',
+          type: 'textarea',
         },
         {
-            name: 'slug',
-            type: 'text',
-            required: true,
-            unique: true,
-            admin: {
-                position: 'sidebar',
-            },
+          name: 'keywords',
+          type: 'text',
         },
         {
-            name: 'status',
-            type: 'select',
-            options: [
-                {
-                    value: 'draft',
-                    label: 'Draft',
-                },
-                {
-                    value: 'published',
-                    label: 'Published',
-                },
-            ],
-            defaultValue: 'draft',
-            admin: {
-                position: 'sidebar',
-            },
+          name: 'ogImage',
+          type: 'upload',
+          relationTo: 'media',
         },
-        {
-            name: 'publishedDate',
-            type: 'date',
-            admin: {
-                position: 'sidebar',
-            },
-        },
-        {
-            name: 'featuredImage',
-            type: 'upload',
-            relationTo: 'media',
-            required: false,
-        },
-        {
-            name: 'author',
-            type: 'relationship',
-            relationTo: 'users',
-            hasMany: false,
-            admin: {
-                position: 'sidebar',
-            },
-        },
-        {
-            name: 'seo',
-            type: 'group',
-            fields: [
-                {
-                    name: 'description',
-                    type: 'textarea',
-                },
-                {
-                    name: 'keywords',
-                    type: 'text',
-                },
-                {
-                    name: 'ogImage',
-                    type: 'upload',
-                    relationTo: 'media',
-                },
-            ],
-            admin: {
-                position: 'sidebar',
-            },
-        },
-    ],
-    timestamps: true,
+      ],
+      admin: {
+        position: 'sidebar',
+      },
+    },
+  ],
+  timestamps: true,
 };
 
 export default Pages;

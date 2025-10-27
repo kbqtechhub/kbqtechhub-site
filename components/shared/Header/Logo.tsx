@@ -1,18 +1,16 @@
-import Image from 'next/image'
-import React from 'react'
-import Link from 'next/link'
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Logo() {
-    return (
-        <Link className='h-auto' href='/'>
-            <Image
-                src="/images/KBQTECH-HUB-YELLOW.png"
-                alt="KBQ TECH-HUB"
-                width={50}
-                height={50}
-                priority
-
-            />
-        </Link>
-    )
+  return (
+    <Link className="h-auto" href="/">
+      <Image
+        src="/images/KBQTECH-HUB-YELLOW.png"
+        alt="KBQ TECH-HUB"
+        width={50}
+        height={50}
+        priority
+      />
+    </Link>
+  );
 }

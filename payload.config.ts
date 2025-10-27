@@ -14,6 +14,7 @@ import GadgetCategories from './collections/GadgetCategories'
 import GadgetTags from './collections/GadgetTags'
 import { Media } from './collections/Media'
 import { Roles } from './collections/Roles'
+import { Courses } from './collections/Courses'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -24,9 +25,10 @@ export default buildConfig({
       url: process.env.SERVER_URL,
       collections: ['pages'],
     },
+    user: 'users'
   },
-  collections: [Users, Media, Blog, Categories, Store, Roles, GadgetCategories, GadgetTags],
-  cors: '*',
+  collections: [Users, Media, Blog, Categories, Store, Roles, GadgetCategories, GadgetTags, Courses],
+  debug: process.env.NODE_ENV === 'development',
   serverURL: process.env.SERVER_URL,
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
@@ -37,11 +39,12 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',
   }),
+  cors: '*',
   sharp,
   plugins: [
     s3Storage({
       collections: {
-        media: true,
+        media: true
       },
       bucket: process.env.S3_BUCKET || '',
       config: {
@@ -55,4 +58,9 @@ export default buildConfig({
       },
     }),
   ],
+  upload: {
+    limits: {
+      fileSize: 100 * 1024 * 1024, // 100 MB
+    }
+  }
 })

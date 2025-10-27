@@ -1,10 +1,10 @@
-import type { CollectionConfig } from 'payload'
+import type { CollectionConfig } from 'payload';
 
 export const Roles: CollectionConfig = {
   slug: 'roles',
   admin: {
     useAsTitle: 'name',
-    description: 'User roles and their permissions'
+    description: 'User roles and their permissions',
   },
   access: {
     // Only admins can manage roles
@@ -19,8 +19,8 @@ export const Roles: CollectionConfig = {
       type: 'text',
       required: true,
       admin: {
-        description: 'Display name for the role'
-      }
+        description: 'Display name for the role',
+      },
     },
     {
       name: 'slug',
@@ -28,15 +28,15 @@ export const Roles: CollectionConfig = {
       required: true,
       unique: true,
       admin: {
-        description: 'Unique identifier for the role (e.g., admin, editor)'
-      }
+        description: 'Unique identifier for the role (e.g., admin, editor)',
+      },
     },
     {
       name: 'description',
       type: 'textarea',
       admin: {
-        description: 'Detailed description of role permissions'
-      }
+        description: 'Detailed description of role permissions',
+      },
     },
     {
       name: 'permissions',
@@ -46,28 +46,28 @@ export const Roles: CollectionConfig = {
           name: 'canManageUsers',
           label: 'Can Manage Users',
           type: 'checkbox',
-          defaultValue: false
+          defaultValue: false,
         },
         {
           name: 'canPublishPosts',
           label: 'Can Publish Posts',
           type: 'checkbox',
-          defaultValue: false
+          defaultValue: false,
         },
         {
           name: 'canManageAllPosts',
           label: 'Can Manage All Posts',
-          type: 'checkbox', 
-          defaultValue: false
+          type: 'checkbox',
+          defaultValue: false,
         },
         {
           name: 'canCreatePosts',
           label: 'Can Create Posts',
           type: 'checkbox',
-          defaultValue: false
-        }
-      ]
-    }
+          defaultValue: false,
+        },
+      ],
+    },
   ],
   hooks: {
     beforeValidate: [
@@ -77,7 +77,7 @@ export const Roles: CollectionConfig = {
           // No need to add defaults if roles already exist
           return data;
         }
-      }
-    ]
-  }
-}
+      },
+    ],
+  },
+};

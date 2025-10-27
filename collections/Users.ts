@@ -1,4 +1,4 @@
-import type { CollectionConfig, CollectionSlug } from 'payload'
+import type { CollectionConfig, CollectionSlug } from 'payload';
 
 export const Users: CollectionConfig = {
   slug: 'users',
@@ -83,7 +83,7 @@ export const Users: CollectionConfig = {
         position: 'sidebar',
         readOnly: true,
       },
-    }
+    },
   ],
   hooks: {
     beforeChange: [
@@ -94,8 +94,8 @@ export const Users: CollectionConfig = {
           data.roleAssignedAt = new Date();
         }
         return data;
-      }
-    ]
-  }
+      },
+    ],
+  },
   // Example access control based on roles would need to be updated to check role permissions
-}
+};

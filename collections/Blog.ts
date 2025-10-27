@@ -1,4 +1,4 @@
-import type { CollectionConfig, CollectionSlug } from 'payload'
+import type { CollectionConfig, CollectionSlug } from 'payload';
 import { slugField } from '@/lib/slugField';
 
 export const Blog: CollectionConfig = {
@@ -374,4 +374,3 @@ export const Blog: CollectionConfig = {
     },
   ],
 };
-
