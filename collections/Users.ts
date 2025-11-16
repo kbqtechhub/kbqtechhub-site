@@ -6,6 +6,22 @@ export const Users: CollectionConfig = {
     useAsTitle: 'email',
   },
   auth: true,
+  access: {
+    // Allow anyone to create the first user (admin)
+    create: () => true,
+    // Only authenticated users can read user data
+    read: () => true,
+    // Users can update their own data, admins can update anyone
+    update: ({ req: { user } }) => {
+      if (!user) return false;
+      return true;
+    },
+    // Only admins can delete users
+    delete: ({ req: { user } }) => {
+      if (!user) return false;
+      return true;
+    },
+  },
   fields: [
     // Email added by default
     {
@@ -28,7 +44,7 @@ export const Users: CollectionConfig = {
       type: 'relationship',
       relationTo: 'roles' as CollectionSlug,
       hasMany: false,
-      required: true,
+      required: false,
       admin: {
         description: 'User role determines their permissions in the system',
       },

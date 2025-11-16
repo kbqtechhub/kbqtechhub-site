@@ -15,19 +15,16 @@ import GadgetTags from './collections/GadgetTags'
 import { Media } from './collections/Media'
 import { Roles } from './collections/Roles'
 import { Courses } from './collections/Courses'
+import Pages from './collections/Pages'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
   admin: {
-    livePreview: {
-      url: process.env.SERVER_URL,
-      collections: ['pages'],
-    },
     user: 'users'
   },
-  collections: [Users, Media, Blog, Categories, Store, Roles, GadgetCategories, GadgetTags, Courses],
+  collections: [Users, Media, Blog, Categories, Pages, Store, Roles, GadgetCategories, GadgetTags, Courses],
   debug: process.env.NODE_ENV === 'development',
   serverURL: process.env.SERVER_URL,
   editor: lexicalEditor(),
@@ -39,7 +36,7 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',
   }),
-  cors: '*',
+  cors: ['*'],
   sharp,
   plugins: [
     s3Storage({
