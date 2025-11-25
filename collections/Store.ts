@@ -1,8 +1,8 @@
 import type { CollectionConfig, CollectionSlug } from 'payload';
 import { slugField } from '@/lib/slugField';
 
-const Store: CollectionConfig = {
-  slug: 'stores',
+export const Store: CollectionConfig = {
+  slug: 'store',
   admin: {
     useAsTitle: 'name',
     defaultColumns: ['name', 'category', 'price', 'rating', 'updatedAt'],
@@ -220,5 +220,3 @@ const Store: CollectionConfig = {
   ],
   timestamps: true,
 };
-
-export default Store;

@@ -5,17 +5,17 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
-
 import { Users } from './collections/Users'
-import { Categories } from './collections/Categories'
-import { Blog } from './collections/Blog'
-import Store from './collections/Store'
-import GadgetCategories from './collections/GadgetCategories'
-import GadgetTags from './collections/GadgetTags'
 import { Media } from './collections/Media'
+import { Blog } from './collections/Blog'
+import { Categories } from './collections/Categories'
+import { Pages } from './collections/Pages'
+import { Store } from './collections/Store'
 import { Roles } from './collections/Roles'
+import { GadgetCategories } from './collections/GadgetCategories'
+import { GadgetTags } from './collections/GadgetTags'
 import { Courses } from './collections/Courses'
-import Pages from './collections/Pages'
+
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)

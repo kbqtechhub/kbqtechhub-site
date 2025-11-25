@@ -2,7 +2,7 @@ import type { CollectionConfig, CollectionSlug } from 'payload';
 import { slugField } from '@/lib/slugField';
 
 export const Blog: CollectionConfig = {
-  slug: 'blogs',
+  slug: 'blog',
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title', 'author', 'category', 'publishedDate'],
@@ -215,7 +215,7 @@ export const Blog: CollectionConfig = {
       name: 'relatedPosts',
       label: 'Related Posts',
       type: 'relationship',
-      relationTo: 'blogs' as CollectionSlug,
+      relationTo: 'blog' as CollectionSlug,
       hasMany: true,
       admin: {
         description: 'Select posts that are related to this one',

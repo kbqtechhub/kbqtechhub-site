@@ -1,6 +1,6 @@
 import type { CollectionConfig } from 'payload';
 
-const GadgetCategories: CollectionConfig = {
+export const GadgetCategories: CollectionConfig = {
   slug: 'gadgetCategories',
   admin: {
     useAsTitle: 'name',
@@ -26,5 +26,3 @@ const GadgetCategories: CollectionConfig = {
     },
   ],
 };
-
-export default GadgetCategories;
