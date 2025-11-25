@@ -5,29 +5,26 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
-
 import { Users } from './collections/Users'
-import { Categories } from './collections/Categories'
-import { Blog } from './collections/Blog'
-import Store from './collections/Store'
-import GadgetCategories from './collections/GadgetCategories'
-import GadgetTags from './collections/GadgetTags'
 import { Media } from './collections/Media'
+import { Blog } from './collections/Blog'
+import { Categories } from './collections/Categories'
+import { Pages } from './collections/Pages'
+import { Store } from './collections/Store'
 import { Roles } from './collections/Roles'
+import { GadgetCategories } from './collections/GadgetCategories'
+import { GadgetTags } from './collections/GadgetTags'
 import { Courses } from './collections/Courses'
+
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
   admin: {
-    livePreview: {
-      url: process.env.SERVER_URL,
-      collections: ['pages'],
-    },
     user: 'users'
   },
-  collections: [Users, Media, Blog, Categories, Store, Roles, GadgetCategories, GadgetTags, Courses],
+  collections: [Users, Media, Blog, Categories, Pages, Store, Roles, GadgetCategories, GadgetTags, Courses],
   debug: process.env.NODE_ENV === 'development',
   serverURL: process.env.SERVER_URL,
   editor: lexicalEditor(),
@@ -39,7 +36,7 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',
   }),
-  cors: '*',
+  cors: ['*'],
   sharp,
   plugins: [
     s3Storage({

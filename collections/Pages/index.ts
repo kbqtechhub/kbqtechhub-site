@@ -1,6 +1,6 @@
 import type { CollectionConfig } from 'payload';
 
-const Pages: CollectionConfig = {
+export const Pages: CollectionConfig = {
   slug: 'pages',
   admin: {
     useAsTitle: 'title',
@@ -94,5 +94,3 @@ const Pages: CollectionConfig = {
   ],
   timestamps: true,
 };
-
-export default Pages;
