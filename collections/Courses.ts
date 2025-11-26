@@ -1,4 +1,5 @@
 import type { CollectionConfig, CollectionSlug } from 'payload';
+import { isAdmin, isInstructor, canManageCourses } from '@/access/checkRole';
 
 export const Courses: CollectionConfig = {
   slug: 'courses',
@@ -8,14 +9,43 @@ export const Courses: CollectionConfig = {
     group: 'Content',
   },
   access: {
+    // Public read access
     read: () => true,
-    create: ({ req }) =>
-      (req.user as any)?.roles?.permissions?.canCreatePosts ||
-      (req.user as any)?.roles?.slug === 'admin',
-    update: ({ req }) =>
-      (req.user as any)?.roles?.permissions?.canManageAllPosts ||
-      (req.user as any)?.roles?.slug === 'admin',
-    delete: ({ req }) => (req.user as any)?.roles?.slug === 'admin',
+    // Admin or instructor can create courses
+    create: ({ req: { user } }) => {
+      if (!user) return false;
+      return canManageCourses(user);
+    },
+    // Admin can update all, instructors can only update their own courses
+    update: ({ req: { user } }) => {
+      if (!user) return false;
+      // Admins can update all courses
+      if (isAdmin(user)) return true;
+      // Instructors can only update courses where they are the instructor
+      if (isInstructor(user)) {
+        return {
+          instructor: {
+            equals: user.id,
+          },
+        };
+      }
+      return false;
+    },
+    // Admin can delete all, instructors can only delete their own courses
+    delete: ({ req: { user } }) => {
+      if (!user) return false;
+      // Admins can delete all courses
+      if (isAdmin(user)) return true;
+      // Instructors can only delete courses where they are the instructor
+      if (isInstructor(user)) {
+        return {
+          instructor: {
+            equals: user.id,
+          },
+        };
+      }
+      return false;
+    },
   },
   fields: [
     {

@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload';
+import { canManageContent } from '@/access/checkRole';
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -7,7 +8,23 @@ export const Pages: CollectionConfig = {
     defaultColumns: ['title', 'slug', 'status', 'updatedAt'],
   },
   access: {
+    // Public read access
     read: () => true,
+    // Admin or editor can create pages
+    create: ({ req: { user } }) => {
+      if (!user) return false;
+      return canManageContent(user);
+    },
+    // Admin or editor can update pages
+    update: ({ req: { user } }) => {
+      if (!user) return false;
+      return canManageContent(user);
+    },
+    // Admin or editor can delete pages
+    delete: ({ req: { user } }) => {
+      if (!user) return false;
+      return canManageContent(user);
+    },
   },
   fields: [
     {

@@ -1,9 +1,26 @@
 import type { CollectionConfig } from 'payload';
+import { canManageMedia } from '@/access/checkRole';
 
 export const Media: CollectionConfig = {
   slug: 'media',
   access: {
+    // Public read access
     read: () => true,
+    // Admin, editor, merchant, or instructor can create media
+    create: ({ req: { user } }) => {
+      if (!user) return false;
+      return canManageMedia(user);
+    },
+    // Admin, editor, merchant, or instructor can update media
+    update: ({ req: { user } }) => {
+      if (!user) return false;
+      return canManageMedia(user);
+    },
+    // Admin, editor, merchant, or instructor can delete media
+    delete: ({ req: { user } }) => {
+      if (!user) return false;
+      return canManageMedia(user);
+    },
   },
   upload: {
     staticDir: 'media',

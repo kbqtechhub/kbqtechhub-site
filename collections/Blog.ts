@@ -1,5 +1,6 @@
 import type { CollectionConfig, CollectionSlug } from 'payload';
 import { slugField } from '@/lib/slugField';
+import { canManageContent } from '@/access/checkRole';
 
 export const Blog: CollectionConfig = {
   slug: 'blog',
@@ -9,7 +10,23 @@ export const Blog: CollectionConfig = {
     group: 'Blog Posts',
   },
   access: {
+    // Public read access
     read: () => true,
+    // Admin or editor can create blog posts
+    create: ({ req: { user } }) => {
+      if (!user) return false;
+      return canManageContent(user);
+    },
+    // Admin or editor can update blog posts
+    update: ({ req: { user } }) => {
+      if (!user) return false;
+      return canManageContent(user);
+    },
+    // Admin or editor can delete blog posts
+    delete: ({ req: { user } }) => {
+      if (!user) return false;
+      return canManageContent(user);
+    },
   },
   fields: [
     {

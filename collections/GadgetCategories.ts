@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload';
+import { canManageStore } from '@/access/checkRole';
 
 export const GadgetCategories: CollectionConfig = {
   slug: 'gadgetCategories',
@@ -7,7 +8,23 @@ export const GadgetCategories: CollectionConfig = {
     group: 'Store',
   },
   access: {
+    // Public read access
     read: () => true,
+    // Admin or merchant can create gadget categories
+    create: ({ req: { user } }) => {
+      if (!user) return false;
+      return canManageStore(user);
+    },
+    // Admin or merchant can update gadget categories
+    update: ({ req: { user } }) => {
+      if (!user) return false;
+      return canManageStore(user);
+    },
+    // Admin or merchant can delete gadget categories
+    delete: ({ req: { user } }) => {
+      if (!user) return false;
+      return canManageStore(user);
+    },
   },
   fields: [
     {
