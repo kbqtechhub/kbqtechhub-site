@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload';
+import { isAdmin } from '@/access/checkRole';
 
 export const Roles: CollectionConfig = {
   slug: 'roles',
@@ -7,11 +8,23 @@ export const Roles: CollectionConfig = {
     description: 'User roles and their permissions',
   },
   access: {
-    // Only admins can manage roles
-    read: () => true, // Everyone can read roles
-    // create: ({ req }) => req.user?.roles === 'admin',
-    // update: ({ req }) => req.user?.roles === 'admin',
-    // delete: ({ req }) => req.user?.roles === 'admin',
+    // Everyone can read roles (for reference)
+    read: () => true,
+    // Only admin can create roles
+    create: ({ req: { user } }) => {
+      if (!user) return false;
+      return isAdmin(user);
+    },
+    // Only admin can update roles
+    update: ({ req: { user } }) => {
+      if (!user) return false;
+      return isAdmin(user);
+    },
+    // Only admin can delete roles
+    delete: ({ req: { user } }) => {
+      if (!user) return false;
+      return isAdmin(user);
+    },
   },
   fields: [
     {

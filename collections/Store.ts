@@ -1,5 +1,6 @@
 import type { CollectionConfig, CollectionSlug } from 'payload';
 import { slugField } from '@/lib/slugField';
+import { canManageStore } from '@/access/checkRole';
 
 export const Store: CollectionConfig = {
   slug: 'store',
@@ -9,7 +10,23 @@ export const Store: CollectionConfig = {
     group: 'Store',
   },
   access: {
+    // Public read access
     read: () => true,
+    // Admin or merchant can create store items
+    create: ({ req: { user } }) => {
+      if (!user) return false;
+      return canManageStore(user);
+    },
+    // Admin or merchant can update store items
+    update: ({ req: { user } }) => {
+      if (!user) return false;
+      return canManageStore(user);
+    },
+    // Admin or merchant can delete store items
+    delete: ({ req: { user } }) => {
+      if (!user) return false;
+      return canManageStore(user);
+    },
   },
   fields: [
     {

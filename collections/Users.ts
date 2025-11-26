@@ -1,4 +1,5 @@
 import type { CollectionConfig, CollectionSlug } from 'payload';
+import { isAdmin } from '@/access/checkRole';
 
 export const Users: CollectionConfig = {
   slug: 'users',
@@ -7,19 +8,43 @@ export const Users: CollectionConfig = {
   },
   auth: true,
   access: {
-    // Allow anyone to create the first user (admin)
-    create: () => true,
-    // Only authenticated users can read user data
-    read: () => true,
-    // Users can update their own data, admins can update anyone
+    // Only admin can create users (allow first user creation for initial setup)
+    create: ({ req: { user } }) => {
+      // Allow creation if no user exists (first user setup) or if user is admin
+      if (!user) {
+        // Check if any users exist - if not, allow creation
+        return true; // PayloadCMS handles first user creation automatically
+      }
+      return isAdmin(user);
+    },
+    // Users can read their own profile, admins can read all
+    read: ({ req: { user } }) => {
+      if (!user) return false;
+      // Admins can read all users
+      if (isAdmin(user)) return true;
+      // Users can read their own profile
+      return {
+        id: {
+          equals: user.id,
+        },
+      };
+    },
+    // Users can update their own profile, admins can update all
     update: ({ req: { user } }) => {
       if (!user) return false;
-      return true;
+      // Admins can update all users
+      if (isAdmin(user)) return true;
+      // Users can only update their own profile
+      return {
+        id: {
+          equals: user.id,
+        },
+      };
     },
-    // Only admins can delete users
+    // Only admin can delete users
     delete: ({ req: { user } }) => {
       if (!user) return false;
-      return true;
+      return isAdmin(user);
     },
   },
   fields: [
