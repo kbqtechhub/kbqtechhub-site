@@ -75,8 +75,8 @@ export default function Navigation() {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuTrigger className="text-base">Services</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-off-black rounded-md">
+          <NavigationMenuContent className='p-0'>
+            <ul className="grid w-[400px] p-4 md:w-[450px] md:grid-cols-2 bg-off-black rounded-md">
               {serviceLinks.map((service) => (
                 <ListItem
                   key={service.title}
