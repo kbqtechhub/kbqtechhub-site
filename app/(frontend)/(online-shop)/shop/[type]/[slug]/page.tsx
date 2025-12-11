@@ -98,7 +98,8 @@ export default async function ItemDetailPage({
                 <Image
                   src={item.image}
                   alt={item.name}
-                  fill
+                  width={640}
+                  height={427}
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
@@ -222,8 +223,9 @@ export default async function ItemDetailPage({
               <div className="relative h-80 md:h-96 w-full mb-6 rounded-md overflow-hidden">
                 <Image
                   src={item.image}
-                  alt={item.name}
-                  fill
+                    alt={item.name}
+                    width={640}
+                    height={427}
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
